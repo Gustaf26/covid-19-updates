@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  height: 93vh;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {background:url('sea.jpg') fixed;
+  background-position: 0 0 0 0;
 }
 
 .App-logo {
@@ -7,32 +13,98 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(8px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+input {padding:0.5rem;
+  width: 300px}
+
+button {margin: 1rem;
+  padding:0.5rem;
+  border-radius: 10%;}
+
+button:hover {background-color: rgb(85, 88, 88);
+  color:white;
+  font-weight:bold;}
+
+
+.ContList li {list-style-type: none;
+    margin-left: 0;
+    padding:0.75rem;
+    color:white;
+    font-weight: bold;}
+
+#warn {color:white;
+  font-weight: bold;}
+
+.info {display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top:1rem;
+  margin-bottom: 5rem;
+  }
+
+.info h4 {color:black;
+  }
+
+.globalinfo, .countryinfo {display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top:1rem;
+  margin-bottom: 5rem;
+  }
+
+.card {
+  margin:1rem;
+  padding:1rem;
+  background-color: rgb(40, 129, 156); 
+ border:1px dotted black;
+  border-radius: 15px;
+  opacity: 0.8;}
+
+footer {position: fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: black;
+    color:white;
+    text-align: center;
+    padding:1rem;
+    font-size:1em;}
+
+@media screen and (max-width:500px){
+
+  .card{width:300px;
+  margin:1rem;}}
+
+@media screen and (max-width:900px){
+
+  .card{width:500px;
+  margin:1rem;}
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (min-width:901px){
+
+  .card{width:800px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+
 }
+
+
+
+
+
+
