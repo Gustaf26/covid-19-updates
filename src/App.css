@@ -25,6 +25,39 @@ body {background:url('sea.jpg') fixed;
   color: white;
 }
 
+.container {display:flex;
+  flex-direction: row;}
+
+.usefulLinks{margin:1rem 1rem;
+  width:300px;
+  list-style-type: none;
+  font-weight: bold;
+  background-color: rgb(40, 129, 156); 
+  border:1px dotted black;
+   border-radius: 15px;
+   opacity: 0.8;
+   max-height: 800px;
+  }
+
+.usefulLinks li {list-style-type: none;
+  padding:1rem;
+  text-align: left;
+  }
+
+.routcont{display:flex;
+  flex-direction: column;
+  align-content: center;}
+
+ul.initiallist {padding-left:0;}
+
+ul.initiallist li {
+  font-size: 1.15em;
+  margin-left:1rem;
+  border-radius: 10px;}
+
+ul.initiallist li:hover {background-color:  rgb(40, 129, 156);
+  color:white;}
+
 
 input {padding:0.5rem;
   width: 300px}
@@ -86,20 +119,58 @@ footer {position: fixed;
 
 @media screen and (max-width:500px){
 
+  .container {flex-direction: column;
+}
+
+.usefulLinks {max-height: 500px;
+  width: 100%;
+  margin-right:1rem;}
+
   .card{width:300px;
-  margin:1rem;}}
+  margin:1rem;}
+
+ul.initiallist{display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style-type: none;
+    font-weight: bold;
+    color:rgb(43, 124, 145);
+  justify-content: center;}
+
+  ul.initiallist li {padding:1rem;}
+}
 
 @media screen and (max-width:900px){
 
   .card{width:500px;
   margin:1rem;}
 
+  ul.initiallist{display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    font-weight: bold;
+    color:rgb(43, 124, 145);
+    justify-content: center;}
+
+  ul.initiallist li {padding:1rem;}
+
 }
 
 @media screen and (min-width:901px){
 
-  .card{width:800px;
-  }
+  .card{width:800px;}
+
+  .routcont {margin-left:5rem;}
+
+  ul.initiallist{display:flex;
+    flex-direction: row;
+    list-style-type: none;
+    font-weight: bold;
+    color:rgb(43, 124, 145);
+    justify-content: center;}
+
+  ul.initiallist li {padding:1rem;}
 
 }
 
