@@ -26,38 +26,55 @@ body {background:url('sea.jpg') fixed;
 }
 
 .container {display:flex;
-  flex-direction: row;}
+  flex-direction: row;
+  justify-content: center;}
+
+
 
 .usefulLinks{margin:1rem 1rem;
-  width:300px;
+  min-width:300px;
   list-style-type: none;
   font-weight: bold;
-  background-color: rgb(40, 129, 156); 
+  background-color: rgb(76, 140, 160); 
   border:1px dotted black;
    border-radius: 15px;
    opacity: 0.8;
-   max-height: 800px;
+   max-height:690px;
   }
 
 .usefulLinks li {list-style-type: none;
   padding:1rem;
-  text-align: left;
+  text-align: center;
   }
+
+.linksList {padding-left:0;}
 
 .routcont{display:flex;
   flex-direction: column;
-  align-content: center;}
+  align-items: center;}
 
-ul.initiallist {padding-left:0;}
+/*NAVBAR*/
+
+ul.initiallist {padding: 0;
+  opacity: 0.8;
+  margin-top: 2rem;
+  margin-bottom: 0;
+  background-color: rgb(76, 140, 160); 
+  border-radius: 10px;
+  border:1px dotted black;}
 
 ul.initiallist li {
   font-size: 1.15em;
-  margin-left:1rem;
   border-radius: 10px;}
 
-ul.initiallist li:hover {background-color:  rgb(40, 129, 156);
+ul.initiallist li:hover {background-color:  rgb(65, 119, 134);
   color:white;}
 
+.usefulLinks {max-height: 285px;}
+
+
+
+/*COUNTRY SEARCH*/
 
 input {padding:0.5rem;
   width: 300px}
@@ -77,8 +94,18 @@ button:hover {background-color: rgb(85, 88, 88);
     color:white;
     font-weight: bold;}
 
-#warn {color:white;
+/*INITIAL WARNING*/
+
+#warn h3 {color:white;
+  font-size: 1.5em;
   font-weight: bold;}
+
+#warn p {color:white;
+  font-size: 1.20em;
+  font-weight: bold;}
+
+
+/*INFO CARDS*/
 
 .info {display:flex;
   flex-direction: column;
@@ -107,6 +134,24 @@ button:hover {background-color: rgb(85, 88, 88);
   border-radius: 15px;
   opacity: 0.8;}
 
+/*TABLE TOP 10 COUNTRIES*/
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 footer {position: fixed;
     bottom:0;
     left:0;
@@ -126,6 +171,9 @@ footer {position: fixed;
   width: 100%;
   margin-right:1rem;}
 
+.linksList {display:flex;
+  justify-content: center;}
+
   .card{width:300px;
   margin:1rem;}
 
@@ -140,7 +188,18 @@ ul.initiallist{display:flex;
   ul.initiallist li {padding:1rem;}
 }
 
-@media screen and (max-width:900px){
+@media screen and (max-width:1100px) {
+
+  .container {flex-direction: column;
+
+  }
+
+  .usefulLinks {max-height: 500px;
+    width: 95%;
+    margin-right:1rem;}
+
+  .linksList {display:flex;
+    justify-content: center;}
 
   .card{width:500px;
   margin:1rem;}
@@ -157,7 +216,7 @@ ul.initiallist{display:flex;
 
 }
 
-@media screen and (min-width:901px){
+@media screen and (min-width:1101px){
 
   .card{width:800px;}
 
@@ -165,10 +224,12 @@ ul.initiallist{display:flex;
 
   ul.initiallist{display:flex;
     flex-direction: row;
+    flex-wrap: wrap;
     list-style-type: none;
     font-weight: bold;
     color:rgb(43, 124, 145);
-    justify-content: center;}
+    justify-content: center;
+    }
 
   ul.initiallist li {padding:1rem;}
 

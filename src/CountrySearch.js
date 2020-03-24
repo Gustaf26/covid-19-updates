@@ -60,7 +60,7 @@ render () {
 
         return (
         <div>
-            <h2>SEARCH BY COUNTRIES TO GET THE LATEST UPDATES</h2>
+            <h3>ENTER COUNTRY NAME</h3>
             <form onSubmit={this.getFromApi}>
             <label>
                 <input type="text" onChange={(e)=>this.changeCountry(e)}/>

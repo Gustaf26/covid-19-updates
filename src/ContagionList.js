@@ -10,7 +10,7 @@ class ContagionList extends React.Component {
 
 componentDidMount =() => {
       
-        fetch(`https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country=$`, {
+        fetch(`https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country=`, {
           "method": "GET",
           "headers": {
             "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
@@ -27,29 +27,53 @@ componentDidMount =() => {
 
 listoutput = (dat) => {let dataarr = [...this.state.data];
 
-    let i;
+   let globalarr = []
 
-    for (i=0; i<10; i++) {
-      dataarr.push({country:dat.data.covid19Stats[i].country, confirmed: <p>{dat.data.covid19Stats[i].confirmed}</p>, recovered: <p>{dat.data.covid19Stats[i].recovered}</p>, deaths: <p>{dat.data.covid19Stats[i].deaths}</p>, timestamp: <p>{dat.data.covid19Stats[i].lastUpdate}</p> })
+   let j;
 
-      this.setState({data: dataarr})}}
+   for (j=0; j<dat.data.covid19Stats.length; j++) {
+
+    globalarr.push({country:dat.data.covid19Stats[j].country, city: dat.data.covid19Stats[j].city, confirmed: dat.data.covid19Stats[j].confirmed, recovered: dat.data.covid19Stats[j].recovered, deaths: dat.data.covid19Stats[j].deaths, timestamp: dat.data.covid19Stats[j].lastUpdate})
+   }
+   
+   let selectarr = globalarr.filter(cou=>cou.country!="US"&& cou.country!="China")
+   let doubleselectarr = selectarr.filter(cit=>cit.city =="")
+
+   let sortedarr= doubleselectarr.filter(pers=>pers.confirmed > 4000)
+
+  
+   this.setState({data: sortedarr})}
+
+      
 
 
 render () {
 
     const list = this.state.data.map(cas =>{
       
-      return( <div className="card"> 
-              <h4>COUNTRY: {cas.country}</h4>
-              <div>CASES CONFIRMED: {cas.confirmed}</div>                      
-              <div>CASES RECOVERED: {cas.recovered}</div>
-              <div>DEATH CASES: {cas.deaths}</div>              
-              <div>Latest update: {cas.timestamp}</div>
-          </div>)})
+      return( <tr className="card"> 
+                  <td>{cas.country}</td>
+                  <td>{cas.confirmed}</td>                      
+                  <td>{cas.recovered}</td>
+                  <td>{cas.deaths}</td>              
+                  <td>{cas.timestamp}</td>
+              </tr>)})
 
     return (<div className="countryinfo">
-            <h3>TOP 10 COUNTRIES</h3>
-                {list} 
+              <table>
+                <thead>
+                  <tr>
+                      <th>COUNTRY</th>
+                      <th>CASES CONFIRMED</th>
+                      <th>RECOVERED</th>
+                      <th>CASUALTIES</th>
+                      <th>LATEST UPDATE</th>
+                   </tr>
+                </thead>
+                <tbody>
+                  {list} 
+                </tbody>
+              </table>
             </div>)
 }
 }
