@@ -64,10 +64,10 @@ render () {
                 <thead>
                   <tr>
                       <th>COUNTRY</th>
-                      <th>CASES CONFIRMED</th>
+                      <th>CONFIRMED</th>
                       <th>RECOVERED</th>
                       <th>CASUALTIES</th>
-                      <th>LATEST UPDATE</th>
+                      <th>UPDATE</th>
                    </tr>
                 </thead>
                 <tbody>
