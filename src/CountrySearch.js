@@ -61,11 +61,11 @@ render () {
         return (
         <div id="countrymaincard">
             <h3>ENTER COUNTRY NAME</h3>
-            <form onSubmit={this.getFromApi}>
-            <label>
-                <input type="text" onChange={(e)=>this.changeCountry(e)}/>
-                <button type="submit">SEARCH</button>
-            </label>
+            <form className="forma" onSubmit={this.getFromApi}>
+            
+                <input id="countryruta" type="text" onChange={(e)=>this.changeCountry(e)}/>
+                <button id="countrysearchbtn" type="submit">Search</button>
+            
             </form>
 
             {this.state.country? <div className="countryinfo">

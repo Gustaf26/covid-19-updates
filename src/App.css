@@ -16,7 +16,8 @@ body {background:url('sea.jpg') fixed;
 
 .App-header {
   background-color: #282c34;
-  min-height: 30vh;
+  min-height: 150px;
+  max-height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +30,7 @@ body {background:url('sea.jpg') fixed;
   flex-direction: row;
   justify-content: center;}
 
-
+h3{color: rgb(233, 239, 241);}
 
 .usefulLinks{margin:1rem 1rem;
   min-width:300px;
@@ -54,9 +55,22 @@ body {background:url('sea.jpg') fixed;
   align-items: center;
   }
 
+/*MENU BUTTON*/
+
+.openbtn {background-color: rgb(76, 140, 160);
+  border-radius: 5px;
+  border:1px dotted black;
+  font-size: 1.25em;
+  color:white;
+  padding: 0.5rem 1rem 0.5rem 1rem;}
+
+.openbtn:hover {background-color:rgb(64, 118, 133);
+  color:white;}
+
 /*NAVBAR*/
 
-ul.initiallist {padding: 0;
+ul.initiallist {position:relative;
+  padding: 0;
   opacity: 0.8;
   margin-top: 2rem;
   margin-bottom: 0;
@@ -87,6 +101,17 @@ button {margin: 1rem;
 button:hover {background-color: rgb(85, 88, 88);
   color:white;
   font-weight:bold;}
+
+#countryruta{border-radius: 10px;}
+
+#countrysearchbtn {background-color: rgb(76, 140, 160); 
+  font-size: 1.25em;
+  padding:0.75rem;
+  border:white;
+  color:white;}
+
+#countrysearchbtn:hover{background-color: rgb(65, 119, 134);} 
+
 
 
 .ContList li {list-style-type: none;
@@ -165,8 +190,18 @@ footer {position: fixed;
 
 @media screen and (max-width:500px){
 
+
+  .App-header {max-height: 150px;}
+
   .container {flex-direction: column;
 }
+
+.openbtn {min-width:80px;}
+
+.forma {display:flex;
+  flex-direction: column;}
+
+/*USEFUL LINKS*/
 
 .usefulLinks {max-height: 500px;
   width: 100%;
@@ -180,16 +215,21 @@ footer {position: fixed;
 
 /*NAVLIST*/
 
-ul.initiallist{display:flex;
+ ul.initiallist {display:flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    align-items:center;
+    justify-content: center;
     list-style-type: none;
     font-weight: bold;
     color:rgb(43, 124, 145);
-  justify-content: center;
-  margin-top: 0;}
+    justify-content: center;
+    margin-top: 1rem;
+    }
 
-  ul.initiallist li {padding:1rem;}
+  ul.initiallist li {padding:1rem;
+    min-width:300px;
+    border:1px dotted black;
+   }
 
   /*COUNTRY SEARCH*/
 
@@ -206,6 +246,10 @@ ul.initiallist{display:flex;
 }
 @media screen and (min-width:501px) and (max-width:600px) {
 
+  ul.initiallist{display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;}
+
   th, td {font-size: 0.9em;
     padding:0;}
 
@@ -213,12 +257,22 @@ ul.initiallist{display:flex;
       padding-bottom:0.3rem;}
 }
 
+@media screen and (min-width:601px) and (max-width:1100px){
 
-@media screen and (max-width:1100px) {
+  ul.initiallist{display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;}
+
+}
+
+
+@media screen  and (max-width:1100px) {
 
   .container {flex-direction: column;
 
   }
+
+  
 
   .usefulLinks {max-height: 500px;
     width: 95%;
@@ -230,9 +284,7 @@ ul.initiallist{display:flex;
   .card{width:500px;
   margin:1rem;}
 
-  ul.initiallist{display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  ul.initiallist{
     list-style-type: none;
     font-weight: bold;
     color:rgb(43, 124, 145);
@@ -247,6 +299,7 @@ ul.initiallist{display:flex;
   .card{width:800px;}
 
   /*.routcont {margin-left:5rem;}*/
+
 
   ul.initiallist{display:flex;
     flex-direction: row;
