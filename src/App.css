@@ -55,6 +55,18 @@ h3{color: rgb(233, 239, 241);}
   align-items: center;
   }
 
+#overmenurow {display:flex;
+  justify-content: left;}
+
+p#advices{line-height: 2.25rem;
+  font-size: 1.25em;
+  color:white;
+  font-weight: bold;}
+
+span.advice-highlights {font-size: 1.25em;
+  font-weight: bold;
+  color:rgb(27, 51, 58)}
+
 /*MENU BUTTON*/
 
 .openbtn {background-color: rgb(76, 140, 160);
@@ -87,7 +99,16 @@ ul.initiallist li:hover {background-color:  rgb(65, 119, 134);
 
 .usefulLinks {max-height: 285px;}
 
+/*BREADCRUMBS*/
 
+#breadbrumbs {
+  margin-top:1.25rem;
+  display:flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+  font-size: 1.10em;
+  color:rgb(3, 36, 46);
+}
 
 /*COUNTRY SEARCH*/
 
@@ -195,7 +216,7 @@ footer {position: fixed;
 
   .container {flex-direction: column;
 }
-
+.adv {text-align: center;}
 .openbtn {min-width:80px;}
 
 .forma {display:flex;
@@ -263,6 +284,8 @@ footer {position: fixed;
     flex-direction: row;
     flex-wrap: wrap;}
 
+  
+
 }
 
 
@@ -272,7 +295,7 @@ footer {position: fixed;
 
   }
 
-  
+
 
   .usefulLinks {max-height: 500px;
     width: 95%;

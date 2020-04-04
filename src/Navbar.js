@@ -1,24 +1,42 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Breadcrumbs from './Breadcrumbs'
 
 class Navbar extends React.Component {
 
 
     state = {
 
-        showmenu: false
+        showmenu: false,
+        bread: []
+    }
+
+    nollstall = () => {
+        this.setState({bread:[]})
+        this.props.reopenadvice()
+        
     }
 
     openmenu = (e) => {
 
         e.preventDefault()
         
-        this.setState({showmenu: true})
+        this.setState({showmenu: true, bread:[]})
+        this.props.closeadvice();
+        this.props.closetext();
     }
 
-    closemenu = () => {
+    closemenu = (e) => {
+
+        
 
         this.setState({showmenu:false})
+
+        if (e.target.innerText !=="Home") {
+        const breadarr = [...this.state.bread]
+        breadarr.push(e.target.innerText)
+        this.setState({bread:breadarr})
+       }
     }
 
     render () {
@@ -37,6 +55,10 @@ class Navbar extends React.Component {
                 <li onClick={this.closemenu}><Link style={{textDecoration: 'none'}} to="/ContagionList">Most Infected Countries</Link></li> 
                 <li onClick={this.closemenu}><Link style={{textDecoration: 'none'}} to="/Usefullinks">Useful Links</Link></li>       
             </ul>:null}
+
+            {this.state.bread.length?
+                 <Breadcrumbs update={this.nollstall} actualbread={this.state.bread}/>
+             :null}
              
         </div>
     )

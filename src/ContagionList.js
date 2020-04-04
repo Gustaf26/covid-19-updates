@@ -39,7 +39,7 @@ listoutput = (dat) => {let dataarr = [...this.state.data];
    let selectarr = globalarr.filter(cou=>cou.country!="US"&& cou.country!="China")
    let doubleselectarr = selectarr.filter(cit=>cit.city =="")
 
-   let sortedarr= doubleselectarr.filter(pers=>pers.confirmed > 4000)
+   let sortedarr= doubleselectarr.filter(pers=>pers.confirmed > 8000)
 
   
    this.setState({data: sortedarr})}

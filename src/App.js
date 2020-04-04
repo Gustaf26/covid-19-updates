@@ -13,7 +13,44 @@ import './App.css';
 class App extends React.Component {
 
 state = {
+      advices:true,
+      adtext: ""
+}
 
+closead = () => {
+  this.setState({advices:false})
+}
+
+showad = () => {
+
+  this.setState({advices:true})
+}
+
+advices = () => {
+
+  if (this.state.adtext=="") {this.setState({adtext: 
+                    <div className="adv">
+                      <span className="advice-highlights">Wash your hands frequently</span>
+                      
+                      <p> Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water.</p>
+                      
+                      <p> <span className="advice-highlights">Why?</span> Washing your hands with soap and water or using alcohol-based hand rub kills viruses that may be on your hands.
+                      Maintain social distancing</p>
+                      
+                      <span className="advice-highlights"> Maintain at least 1 metre (3 feet) distance between yourself and anyone who is coughing or sneezing.</span>
+                      
+                      <p><span className="advice-highlights">Why?</span> When someone coughs or sneezes they spray small liquid droplets from their nose or mouth which may contain virus.</p>
+                      <p>If you are too close, you can breathe in the droplets, including the COVID-19 virus if the person coughing has the disease.</p>
+                      <p>SOURCE: World Health Organisation</p>
+                    </div>})}
+
+    else {this.setState({adtext:""})}
+
+  
+}
+
+closeadtext = () => {
+  this.setState({adtext:""})
 }
 
 render () {
@@ -27,14 +64,26 @@ render () {
               <div className="container">
                   <div className="routcont">
                     <BrowserRouter>
+                      <div id="overmenurow">
                         <Navbar className="main-nav"
                           activeClassName="main-nav-active"
-                        />       
-                        <hr></hr> 
-                            <div id="warn">
-                              <h3>ATTENTION: Please check the dates of the data delivered</h3>
-                              <p>The disease spreads progressively and we don´t have access to live updates</p>
-                           </div>   
+                          closeadvice={this.closead}
+                          reopenadvice={this.showad}
+                          closetext={this.closeadtext}
+                        />  
+                        {this.state.advices?<p id="advices" onClick={this.advices}>Advices for prevention </p>:null}
+
+                        
+
+                      </div> 
+                        <hr></hr>     
+                        <div id="warn">
+
+                            {this.state.adtext? this.state.adtext:null}
+                        
+                           <h3>ATTENTION: Please check the dates of the data delivered</h3>
+                            <p>The disease spreads progressively and we don´t have access to live updates</p>
+                        </div>   
                             <Route path ='/GlobalSearch' component={GlobalSearch}/>
                             <Route path ='/CountrySearch' component={CountrySearch}/>
                             <Route path ='/ContagionList' component={ContagionList}/>
