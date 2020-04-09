@@ -5,8 +5,8 @@ import GlobalSearch from './GlobalSearch'
 import Usefullinks from './usefullinks'
 import Navbar from './Navbar'
 import { BrowserRouter, Route } from 'react-router-dom'
-import Sample from './sample.js'
-import { Link } from 'react-router-dom'
+//import Sample from './sample.js'
+//import { Link } from 'react-router-dom'
 
 //import axios from 'axios'
 
@@ -75,7 +75,7 @@ render () {
                         />  
                         {this.state.advices?<div>
                                     <p id="advices" onClick={this.advices}>Advices for prevention</p>
-                            <p><Link to="/Sample"/>(Read PDF)</p>        
+                                    
                             </div>:null}
 
                         
@@ -93,7 +93,7 @@ render () {
                             <Route path ='/CountrySearch' component={CountrySearch}/>
                             <Route path ='/ContagionList' component={ContagionList}/>
                             <Route path ='/Usefullinks' component={Usefullinks}/>
-                            <Route path ='/Sample' component={Sample}/>
+                            
                     </BrowserRouter>
                     
                   </div>
