@@ -1,5 +1,6 @@
 
 import React from 'react'
+import Key from './keys'
 
 class GlobalSearch extends React.Component {
 
@@ -15,7 +16,7 @@ componentDidMount = () => {
           "method": "GET",
           "headers": {
               "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
-              "x-rapidapi-key": "49af8e6e8dmsh0f9f2074dabddcbp1a7445jsnedd6de2d5aa8"
+              "x-rapidapi-key": `${Key}`
           }
       })
       .then(response => response.json()
