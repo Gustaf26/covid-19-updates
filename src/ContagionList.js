@@ -19,9 +19,10 @@ componentDidMount =() => {
         })
         .then(response => response.json()
         )
-        .then(data=>this.listoutput(data))
+        .then(data=>
+       this.listoutput(data))
         .catch(err => {
-          console.log(err);
+          console.log(err)
         })
       }
 
@@ -35,11 +36,14 @@ listoutput = (dat) => {let dataarr = [...this.state.data];
 
     globalarr.push({country:dat.data.covid19Stats[j].country, city: dat.data.covid19Stats[j].city, confirmed: dat.data.covid19Stats[j].confirmed, recovered: dat.data.covid19Stats[j].recovered, deaths: dat.data.covid19Stats[j].deaths, timestamp: dat.data.covid19Stats[j].lastUpdate})
    }
+
+   
    
    let selectarr = globalarr.filter(cou=>cou.country!="US"&& cou.country!="China")
-   let doubleselectarr = selectarr.filter(cit=>cit.city =="")
-
-   let sortedarr= doubleselectarr.filter(pers=>pers.confirmed > 8000)
+  
+   //let doubleselectarr = selectarr.filter(cit=>cit.city =="")
+   //console.log(globalarr)
+   let sortedarr= selectarr.filter(pers=>pers.confirmed > 15000)
 
   
    this.setState({data: sortedarr})}
