@@ -1,4 +1,5 @@
 import React from 'react'
+import Moment from 'react-moment' 
 
 
 class ContagionList extends React.Component {
@@ -60,7 +61,7 @@ render () {
                   <td>{cas.confirmed}</td>                      
                   <td>{cas.recovered}</td>
                   <td>{cas.deaths}</td>              
-                  <td>{cas.timestamp}</td>
+                  <td><Moment durationFromNow>{cas.timestamp}</Moment> from now</td>
               </tr>)})
 
     return (<div className="countryinfo">
@@ -71,7 +72,7 @@ render () {
                       <th>CONFIRMED</th>
                       <th>RECOVERED</th>
                       <th>CASUALTIES</th>
-                      <th>UPDATE</th>
+                      <th>UPDATE (hh:mm:ss)</th>
                    </tr>
                 </thead>
                 <tbody>
