@@ -90,7 +90,7 @@ render () {
                         </div>:null}
             
 
-            {this.state.country? <div className="countryinfo">
+            {this.state.showsearch==false? <div className="countryinfo">
                 <h3>COUNTRY DATA for {this.state.country.toUpperCase()}</h3>
                 {countrydata} 
             </div>:null}
