@@ -1,5 +1,7 @@
 
 import React from 'react'
+import Moment from 'react-moment' 
+import { Link } from 'react-router-dom'
 import Key from './keys'
 
 class GlobalSearch extends React.Component {
@@ -26,6 +28,11 @@ componentDidMount = () => {
           console.log(err);
       })}
 
+     topFunction = () =>{
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      } 
+
     outputting = (dat) => {let dataarr = [...this.state.data]
 
         let i;
@@ -43,13 +50,14 @@ componentDidMount = () => {
           
           
             else { return( <div className="card"> 
-                  <h4>COUNTRY: {cas.country}</h4>
-                   {cas.province!=""?<h5>PROVINCE: {cas.province}</h5>:null}
-                  <div>CASES CONFIRMED: {cas.confirmed}</div>                      
-                  <div>CASES RECOVERED: {cas.recovered}</div>
-                  <div>DEATH CASES: {cas.deaths}</div>              
-                  <div>Latest update: {cas.timestamp}</div>
-              </div>)}})
+                                <h4>COUNTRY: {cas.country}</h4>
+                                {cas.province!=""?<h5>PROVINCE: {cas.province}</h5>:null}
+                                <div>CASES CONFIRMED: {cas.confirmed}</div>                      
+                                <div>CASES RECOVERED: {cas.recovered}</div>
+                                <div>DEATH CASES: {cas.deaths}</div>              
+                                <div>Latest update (hh:mm:ss): <Moment durationFromNow>{cas.timestamp}</Moment> from now</div>
+                                <button className="backToTop" onClick={this.topFunction}>Back to top</button>
+                            </div>)}})
 
         return (
             <div className="globalinfo">

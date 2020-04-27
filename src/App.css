@@ -63,6 +63,10 @@ p#advices{line-height: 2.25rem;
   color:white;
   font-weight: bold;}
 
+#underline{text-decoration: underline;
+  text-decoration-style:solid;
+  text-decoration-thickness: 0.125em;}
+
 span.advice-highlights {font-size: 1.25em;
   font-weight: bold;
   color:rgb(27, 51, 58)}
@@ -172,6 +176,14 @@ button:hover {background-color: rgb(85, 88, 88);
   margin-top:1rem;
   margin-bottom: 5rem;
   }
+
+.backToTop{ color: white;
+  margin-top:1.5rem;
+  border: 1px solid whitesmoke;
+  background-color: rgb(16, 90, 112);}
+
+.backToTop:hover{ color: black;
+    background-color: rgb(76, 131, 148);}
 
 .card {
   margin:1rem;

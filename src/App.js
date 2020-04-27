@@ -86,8 +86,8 @@ render () {
 
                             {this.state.adtext? this.state.adtext:null}
                         
-                           <h3>ATTENTION: Please check the dates of the data delivered</h3>
-                            <p>The disease spreads progressively and we don´t have access to live updates</p>
+                           <h3>ATTENTION: Please check the time update for the data delivered</h3>
+                            <p>The disease spreads progressively and we only have access to <span id="underline">daily updates</span></p>
                         </div>   
                             <Route path ='/GlobalSearch' component={GlobalSearch}/>
                             <Route path ='/CountrySearch' component={CountrySearch}/>

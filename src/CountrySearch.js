@@ -1,5 +1,6 @@
 
 import React from 'react'
+import Moment from 'react-moment' 
 import Key from './keys'
 
 class CountrySearch extends React.Component {
@@ -7,13 +8,20 @@ class CountrySearch extends React.Component {
     state = {
 
         data: [],
-        country:""
+        country:"",
+        showsearch:""
+    }
+
+    componentDidMount = () => {
+
+        this.setState({showsearch:true})
     }
 
     getFromApi = (e) => {
 
         e.preventDefault()
     
+    this.setState({showsearch:false})
       
         fetch(`https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country=${this.state.country}`, {
           "method": "GET",
@@ -48,29 +56,42 @@ changeCountry = (e) => {
         this.setState({data: dataarr})
       }}
 
+newSearch = () => {
+
+    this.setState({country:"", showsearch:true})
+}
+
 render () {
 
     const countrydata = this.state.data.map((cas, index) =>
       
-          <div className="card"> {index==0?<h4>COUNTRY AS A WHOLE: {cas.country} </h4>: <h4>COUNTRY (PROVINCE): {cas.country}</h4>}
-              <div>CASES CONFIRMED: {cas.confirmed}</div>                      
-              <div>CASES RECOVERED: {cas.recovered}</div>
-              <div>DEATH CASES: {cas.deaths}</div>              
-              <div>Latest update: {cas.timestamp}</div>
-              </div>)
+          <div className="card"> {index==0?
+          
+                <h4>COUNTRY AS A WHOLE: {cas.country} </h4>: <h4>COUNTRY (PROVINCE): {cas.country}</h4>}
+
+                <div>CASES CONFIRMED: {cas.confirmed}</div>                      
+                <div>CASES RECOVERED: {cas.recovered}</div>
+                <div>DEATH CASES: {cas.deaths}</div>              
+                <div>Latest update (hh:mm:ss): <Moment durationFromNow>{cas.timestamp}</Moment> from now</div>
+                <button className="backToTop" onClick={this.newSearch}>New Search</button>
+            </div>)
 
         return (
         <div id="countrymaincard">
-            <h3>ENTER COUNTRY NAME</h3>
-            <form className="forma" onSubmit={this.getFromApi}>
+
+            {this.state.showsearch? 
+                        <div>
+                            <h3>ENTER COUNTRY NAME</h3>
+                            <form className="forma" onSubmit={this.getFromApi}>
+                            
+                                <input id="countryruta" type="text" onChange={(e)=>this.changeCountry(e)}/>
+                                <button id="countrysearchbtn" type="submit">Search</button>
+                            </form>
+                        </div>:null}
             
-                <input id="countryruta" type="text" onChange={(e)=>this.changeCountry(e)}/>
-                <button id="countrysearchbtn" type="submit">Search</button>
-            
-            </form>
 
             {this.state.country? <div className="countryinfo">
-                <h3>COUNTRY DATA</h3>
+                <h3>COUNTRY DATA for {this.state.country.toUpperCase()}</h3>
                 {countrydata} 
             </div>:null}
             
