@@ -3,6 +3,7 @@ import ContagionList from './ContagionList'
 import CountrySearch from './CountrySearch'
 import GlobalSearch from './GlobalSearch'
 import Usefullinks from './usefullinks'
+import Moment from 'react-moment' 
 import Navbar from './Navbar'
 import { BrowserRouter, Route } from 'react-router-dom'
 //import Sample from './sample.js'
@@ -17,6 +18,11 @@ class App extends React.Component {
 state = {
       advices:true,
       adtext: ""
+}
+
+componentDidMount = () => {
+
+  Moment.startPooledTimer();
 }
 
 closead = () => {
@@ -73,22 +79,27 @@ render () {
                           reopenadvice={this.showad}
                           closetext={this.closeadtext}
                         />  
-                        {this.state.advices?<div>
-                                    <p id="advices" onClick={this.advices}>Advices for prevention</p>
-                                    
+
+                        {this.state.advices?
+                            <div>
+                                <p id="advices" onClick={this.advices}>Advices for prevention</p>       
                             </div>:null}
 
-                        
-
                       </div> 
-                        <hr></hr>     
-                        <div id="warn">
 
-                            {this.state.adtext? this.state.adtext:null}
+                        <hr></hr> 
+
+                      <div id="warn">
+
+                          {this.state.adtext? this.state.adtext:null}
                         
-                           <h3>ATTENTION: Please check the time update for the data delivered</h3>
-                            <p>The disease spreads progressively and we only have access to <span id="underline">daily updates</span></p>
-                        </div>   
+                          <h3>ATTENTION: Please check the time update for the data delivered</h3>
+                          <p>The disease spreads progressively and we only have access to <span id="underline">daily updates</span></p>
+                      </div>   
+                      <div>
+                      {this.state.adtext==""? <p id="countdown-outbreak">The outbreak was first reported to World Health Organisation<Moment toNow >2019-12-31T12:59-0500</Moment> ago</p>: null}
+                          
+                      </div>
                             <Route path ='/GlobalSearch' component={GlobalSearch}/>
                             <Route path ='/CountrySearch' component={CountrySearch}/>
                             <Route path ='/ContagionList' component={ContagionList}/>

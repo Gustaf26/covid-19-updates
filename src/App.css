@@ -43,6 +43,14 @@ h3{color: rgb(233, 239, 241);}
    max-height:690px;
   }
 
+#countdown-outbreak{font-weight: bold;
+  background-color: rgb(76, 140, 160); 
+  border:1px dotted black;
+   border-radius: 15px;
+   opacity: 0.8;
+  padding: 1rem;
+  color:rgb(4, 63, 90);}
+
 .usefulLinks li {list-style-type: none;
   padding:1rem;
   text-align: center;
