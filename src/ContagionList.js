@@ -69,7 +69,7 @@ render () {
               <table>
                 <thead>
                   <tr>
-                      <th>COUNTRY</th>
+                      <th>COUNTRY<span id="star">(*)</span></th>
                       <th>CONFIRMED</th>
                       <th>RECOVERED</th>
                       <th>CASUALTIES</th>
@@ -80,6 +80,7 @@ render () {
                   {list} 
                 </tbody>
               </table>
+              <p id="commentbelow">(*) All countries excepting the US and China</p>
             </div>)
 }
 }

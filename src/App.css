@@ -145,7 +145,12 @@ button:hover {background-color: rgb(85, 88, 88);
 
 #countrysearchbtn:hover{background-color: rgb(65, 119, 134);} 
 
+#commentbelow{font-weight: bold;
+  padding-top:0.75rem;
+  color:white;}
 
+#star{font-weight: bold;
+  color:white;}
 
 .ContList li {list-style-type: none;
     margin-left: 0;
