@@ -97,7 +97,7 @@ render () {
                           <p>The disease spreads progressively and we only have access to <span id="underline">daily updates</span></p>
                       </div>   
                       <div>
-                      {this.state.adtext==""? <p id="countdown-outbreak">The outbreak was first reported to World Health Organisation<Moment toNow >2019-12-31T12:59-0500</Moment> ago</p>: null}
+                      {this.state.adtext==""? <p id="countdown-outbreak">The outbreak was first reported to World Health Organisation <Moment fromNow >2019-12-31T12:59-0500</Moment></p>: null}
                           
                       </div>
                             <Route path ='/GlobalSearch' component={GlobalSearch}/>
