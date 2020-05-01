@@ -45,7 +45,7 @@ listoutput = (dat) => {let dataarr = [...this.state.data];
   
    //let doubleselectarr = selectarr.filter(cit=>cit.city =="")
    //console.log(globalarr)
-   let sortedarr= selectarr.filter(pers=>pers.confirmed > 15000)
+   let sortedarr= selectarr.filter(pers=>pers.deaths > 5000)
 
   
    this.setState({data: sortedarr})}
@@ -80,7 +80,7 @@ render () {
                   {list} 
                 </tbody>
               </table>
-              <p id="commentbelow">(*) All countries excepting the US and China</p>
+              <p id="commentbelow">(*) List of countries excepting the US and China</p>
             </div>)
 }
 }

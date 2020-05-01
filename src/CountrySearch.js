@@ -9,7 +9,8 @@ class CountrySearch extends React.Component {
 
         data: [],
         country:"",
-        showsearch:""
+        showsearch:"",
+        errormsg: false
     }
 
     componentDidMount = () => {
@@ -41,24 +42,29 @@ class CountrySearch extends React.Component {
 
 changeCountry = (e) => {
 
-        this.setState({country:""})
+     //   this.setState({country:""})
+
 
         this.setState({country: e.target.value, data:[]})
       
       }
 
- outputting = (dat) => {if (dat.data.covid19Stats.length < 218 && this.state.country) {
+ outputting = (dat) => {if (!dat.data.covid19Stats.length <218 && this.state.country) {
 
         let dataarr = [...this.state.data]
+
+            if (!dat.data.covid19Stats || dat.data.covid19Stats[0].country=="US") {this.setState({errormsg: true})
+                return} 
   
         dataarr.push({country:dat.data.covid19Stats[0].country, confirmed: <p>{dat.data.covid19Stats[0].confirmed}</p>, recovered: <p>{dat.data.covid19Stats[0].recovered}</p>, deaths: <p>{dat.data.covid19Stats[0].deaths}</p>, timestamp: <p>{dat.data.covid19Stats[0].lastUpdate}</p> })
 
         this.setState({data: dataarr})
-      }}
+      }
+     }
 
 newSearch = () => {
 
-    this.setState({country:"", showsearch:true})
+    this.setState({country:"", showsearch:true, errormsg:false})
 }
 
 render () {
@@ -79,7 +85,7 @@ render () {
         return (
         <div id="countrymaincard">
 
-            {this.state.showsearch? 
+            {this.state.showsearch==true? 
                         <div>
                             <h3>ENTER COUNTRY NAME</h3>
                             <form className="forma" onSubmit={this.getFromApi}>
@@ -90,11 +96,16 @@ render () {
                         </div>:null}
             
 
-            {this.state.showsearch==false? <div className="countryinfo">
+            {this.state.showsearch==false &&this.state.errormsg==false? 
+            
+            <div className="countryinfo">
                 <h3>COUNTRY DATA for {this.state.country.toUpperCase()}</h3>
                 {countrydata} 
+            </div>: null}
+   
+            {this.state.errormsg==true&&this.state.showsearch==false?<div className="notvalidcountry">"You need to enter a valid country name"
+                <div><button className="backToTop" onClick={this.newSearch}>New Search</button></div>
             </div>:null}
-            
         </div>)
     }
 }
