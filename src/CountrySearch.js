@@ -18,18 +18,16 @@ class CountrySearch extends React.Component {
         this.setState({showsearch:true})
     }
 
-    componentWillUnmount = () => {
-
-        this.setState({country:"",
-        showsearch:"",
-        errormsg: false})
-    }
 
     getFromApi = (e) => {
 
         e.preventDefault()
     
     this.setState({showsearch:false})
+
+    if (this.state.country =="") {this.setState({errormsg: true})
+
+        return}
       
         fetch(`https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country=${this.state.country}`, {
           "method": "GET",
@@ -59,8 +57,9 @@ changeCountry = (e) => {
  outputting = (dat) => {if (!dat.data.covid19Stats.length <218 && this.state.country) {
 
         let dataarr = [...this.state.data]
+        
 
-            if (!dat.data.covid19Stats || dat.data.covid19Stats[0].country=="US") {this.setState({errormsg: true})
+            if (!dat.data.covid19Stats ||dat.data.covid19Stats[0].country==="US") {this.setState({errormsg: true})
                 return} 
   
         dataarr.push({country:dat.data.covid19Stats[0].country, confirmed: <p>{dat.data.covid19Stats[0].confirmed}</p>, recovered: <p>{dat.data.covid19Stats[0].recovered}</p>, deaths: <p>{dat.data.covid19Stats[0].deaths}</p>, timestamp: <p>{dat.data.covid19Stats[0].lastUpdate}</p> })
