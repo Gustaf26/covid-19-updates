@@ -18,6 +18,13 @@ class CountrySearch extends React.Component {
         this.setState({showsearch:true})
     }
 
+    componentWillUnmount = () => {
+
+        this.setState({country:"",
+        showsearch:"",
+        errormsg: false})
+    }
+
     getFromApi = (e) => {
 
         e.preventDefault()
@@ -103,7 +110,7 @@ render () {
                 {countrydata} 
             </div>: null}
    
-            {this.state.errormsg==true&&this.state.showsearch==false?<div className="notvalidcountry">"You need to enter a valid country name"
+            {this.state.errormsg==true&&this.state.showsearch==false?<div className="notvalidcountry">You need to enter a valid country name
                 <div><button className="backToTop" onClick={this.newSearch}>New Search</button></div>
             </div>:null}
         </div>)

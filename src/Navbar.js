@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import Breadcrumbs from './Breadcrumbs'
 
 class Navbar extends React.Component {
@@ -48,8 +49,7 @@ class Navbar extends React.Component {
             
 
             {this.state.showmenu ==true? <ul className="initiallist">
-                <li><Link className="nav-link" style={{textDecoration:'none'}} onClick={this.closemenu}
-                 to="/">Home</Link></li>
+                <li><Redirect to={{pathname: "/" }} className="nav-link" style={{textDecoration:'none'}} onClick={this.closemenu}/>Home</li>
                 <li onClick={this.closemenu}><Link style={{textDecoration: 'none'}} to="/GlobalSearch">Global Statistics</Link></li>
                 <li onClick={this.closemenu}><Link style={{textDecoration: 'none'}} to="/CountrySearch">Search By Country</Link></li>
                 <li onClick={this.closemenu}><Link style={{textDecoration: 'none'}} to="/ContagionList">Most Infected Countries</Link></li> 

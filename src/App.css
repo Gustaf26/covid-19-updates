@@ -153,7 +153,8 @@ button:hover {background-color: rgb(85, 88, 88);
   color:white;}
 
 .notvalidcountry{background-color:  rgb(65, 119, 134);
-  margin-bottom: 2rem;
+  margin-bottom: 5.5rem;
+  margin-top: 1.5rem;
   border-radius: 5px;
   border: 1px dotted white;
   padding:1rem;
