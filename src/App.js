@@ -22,7 +22,7 @@ state = {
 
 componentDidMount = () => {
 
-  Moment.startPooledTimer();
+ Moment.startPooledTimer();
 }
 
 closead = () => {
@@ -97,7 +97,7 @@ render () {
                           <p>The disease spreads progressively and we only have access to <span id="underline">daily updates</span></p>
                       </div>   
                       <div>
-                      {this.state.advices? <p id="countdown-outbreak">The outbreak was first reported to World Health Organisation <Moment date="2019-12-31T12:59-0500" durationFromNow></Moment> ago</p>: null}
+                      {this.state.advices? <p id="countdown-outbreak">The outbreak was first reported to World Health Organisation <Moment date="2019-12-31T12:59-0500" durationFromNow></Moment> ago</p>: null} 
                           
                       </div>
                             <Route path ='/GlobalSearch' component={GlobalSearch}/>
