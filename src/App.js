@@ -6,6 +6,7 @@ import Usefullinks from './usefullinks'
 import Moment from 'react-moment' 
 import Navbar from './Navbar'
 import { BrowserRouter, Route } from 'react-router-dom'
+import US from './US'
 //import Sample from './sample.js'
 //import { Link } from 'react-router-dom'
 
@@ -103,6 +104,7 @@ render () {
                             <Route path ='/GlobalSearch' component={GlobalSearch}/>
                             <Route path ='/CountrySearch' component={CountrySearch}/>
                             <Route path ='/ContagionList' component={ContagionList}/>
+                            <Route path ='/Us' component={US}/>
                             <Route path ='/Usefullinks' component={Usefullinks}/>
                             
                     </BrowserRouter>

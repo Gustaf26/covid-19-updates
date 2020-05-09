@@ -53,6 +53,7 @@ class Navbar extends React.Component {
                 <li onClick={this.closemenu}><Link style={{textDecoration: 'none'}} to="/GlobalSearch">Global Statistics</Link></li>
                 <li onClick={this.closemenu}><Link style={{textDecoration: 'none'}} to="/CountrySearch">Search By Country</Link></li>
                 <li onClick={this.closemenu}><Link style={{textDecoration: 'none'}} to="/ContagionList">Most Infected Countries</Link></li> 
+                <li onClick={this.closemenu}><Link style={{textDecoration: 'none'}} to="/Us">U.S.</Link></li> 
                 <li onClick={this.closemenu}><Link style={{textDecoration: 'none'}} to="/Usefullinks">Useful Links</Link></li>       
             </ul>:null}
 
