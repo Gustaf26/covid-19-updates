@@ -93,7 +93,8 @@ render () {
 
             {this.state.showsearch==true? 
                         <div>
-                            <h3>ENTER COUNTRY NAME</h3>
+                            <h3>ENTER COUNTRY NAME (Excepting China and the US)</h3>
+                            
                             <form className="forma" onSubmit={this.getFromApi}>
                             
                                 <input id="countryruta" type="text" onChange={(e)=>this.changeCountry(e)}/>
