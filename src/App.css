@@ -286,6 +286,11 @@ button:hover {
   line-height: 2em;
   padding: 1rem;
   min-height: 30vh;
+  max-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 #recommendations_link {

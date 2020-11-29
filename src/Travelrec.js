@@ -51,6 +51,10 @@ const Travelrec = ({ travelData, closeRecs }) => {
         <Fade in={open}>
           <div id="travelinfo_card">
             <p>{travelData}</p>
+            <p>
+              Data retrieved from{" "}
+              <a href="https://www.trackcorona.live">www.trackcorona.live</a>
+            </p>
           </div>
         </Fade>
       </Modal>
