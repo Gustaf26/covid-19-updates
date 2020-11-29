@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display&display=swap");
+
 .App {
   text-align: center;
   height: 93vh;
@@ -5,7 +7,7 @@
 }
 
 body {
-  background: url("sea.jpg") fixed;
+  /* background: url("sea.jpg") fixed; */
   background-position: 0 0 0 0;
 }
 
@@ -15,21 +17,23 @@ body {
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 150px;
+  background-color: #ffffff;
+  min-height: 100px;
   max-height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(8px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .container {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background-color: #bebcbc;
+  color: white;
 }
 
 h3 {
@@ -41,8 +45,8 @@ h3 {
   min-width: 300px;
   list-style-type: none;
   font-weight: bold;
-  background-color: rgb(76, 140, 160);
-  border: 1px dotted black;
+  background-color: "#fafafa";
+  border: 1px dotted white;
   border-radius: 15px;
   opacity: 0.8;
   max-height: 690px;
@@ -50,12 +54,12 @@ h3 {
 
 #countdown-outbreak {
   font-weight: bold;
-  background-color: rgb(76, 140, 160);
-  border: 1px dotted black;
+  background-color: "#0f0f0f";
+  border: 1px dotted white;
   border-radius: 15px;
   opacity: 0.8;
   padding: 1rem;
-  color: rgb(4, 63, 90);
+  color: white;
 }
 
 .usefulLinks li {
@@ -81,9 +85,8 @@ h3 {
 
 p#advices {
   line-height: 2.25rem;
-  font-size: 1.25em;
+  font-size: 1em;
   color: white;
-  font-weight: bold;
 }
 
 #underline {
@@ -93,25 +96,20 @@ p#advices {
 }
 
 span.advice-highlights {
-  font-size: 1.25em;
+  font-size: 1em;
   font-weight: bold;
-  color: rgb(27, 51, 58);
+  color: white;
 }
 
 /*MENU BUTTON*/
 
 .openbtn {
-  background-color: rgb(76, 140, 160);
   border-radius: 5px;
-  border: 1px dotted black;
+  border: 1px dotted grey;
   font-size: 1.25em;
-  color: white;
+  background-color: "#f0f0f0";
+  color: rgb(236, 230, 230);
   padding: 0.5rem 1rem 0.5rem 1rem;
-}
-
-.openbtn:hover {
-  background-color: rgb(64, 118, 133);
-  color: white;
 }
 
 /*NAVBAR*/
@@ -122,19 +120,15 @@ ul.initiallist {
   opacity: 0.8;
   margin-top: 2rem;
   margin-bottom: 0;
-  background-color: rgb(76, 140, 160);
   border-radius: 10px;
-  border: 1px dotted black;
+  font-family: "Open Sans", sans-serif;
+  color: black;
 }
 
 ul.initiallist li {
-  font-size: 1.15em;
+  font-size: 1em;
   border-radius: 10px;
-}
-
-ul.initiallist li:hover {
-  background-color: rgb(65, 119, 134);
-  color: white;
+  color: black;
 }
 
 .usefulLinks {
@@ -149,7 +143,7 @@ ul.initiallist li:hover {
   justify-content: space-evenly;
   font-weight: bold;
   font-size: 1.1em;
-  color: rgb(3, 36, 46);
+  color: black;
 }
 
 /*COUNTRY SEARCH*/
@@ -165,26 +159,21 @@ button {
   border-radius: 10%;
 }
 
-button:hover {
-  background-color: rgb(85, 88, 88);
-  color: white;
-  font-weight: bold;
-}
-
 #countryruta {
   border-radius: 10px;
 }
 
 #countrysearchbtn {
-  background-color: rgb(76, 140, 160);
-  font-size: 1.25em;
+  background-color: "#fafafa";
+  font-size: 1em;
   padding: 0.75rem;
   border: white;
-  color: white;
+  color: black;
 }
 
 #countrysearchbtn:hover {
-  background-color: rgb(65, 119, 134);
+  background-color: "#f0f0f0";
+  color: rgb(88, 87, 87);
 }
 
 #commentbelow {
@@ -199,21 +188,21 @@ button:hover {
 }
 
 .notvalidcountry {
-  background-color: rgb(65, 119, 134);
+  background-color: "#fafafa";
   margin-bottom: 5.5rem;
   margin-top: 1.5rem;
   border-radius: 5px;
   border: 1px dotted white;
   padding: 1rem;
   font-weight: bold;
-  color: white;
+  color: black;
 }
 
 .ContList li {
   list-style-type: none;
   margin-left: 0;
   padding: 0.75rem;
-  color: white;
+  color: black;
   font-weight: bold;
 }
 
@@ -221,13 +210,13 @@ button:hover {
 
 #warn h3 {
   color: white;
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: bold;
 }
 
 #warn p {
   color: white;
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: bold;
 }
 
@@ -240,6 +229,7 @@ button:hover {
   justify-content: center;
   margin-top: 1rem;
   margin-bottom: 5rem;
+  color: black;
 }
 
 .info h4 {
@@ -254,26 +244,30 @@ button:hover {
   justify-content: center;
   margin-top: 1rem;
   margin-bottom: 5rem;
+  border-radius: 10px;
+  color: black;
+  background-image: url("https://media.istockphoto.com/photos/protect-yourself-with-mask-concepts-on-covid19-virus-outbreak-in-picture-id1217119202?b=1&k=6&m=1217119202&s=170667a&w=0&h=Tky3tjrIjqUTbFEl2W9nyDb48c5kwU_IsFvB4_4Lsb8=");
 }
 
 .backToTop {
-  color: white;
+  color: black;
   margin-top: 1.5rem;
-  border: 1px solid whitesmoke;
-  background-color: rgb(16, 90, 112);
+  border: 1px solid grey;
+  background-color: "#fafafa";
 }
 
 .backToTop:hover {
   color: black;
-  background-color: rgb(76, 131, 148);
+  background-color: "#f0f0f0";
 }
 
 .card {
   margin: 1rem;
   padding: 1rem;
-  background-color: rgb(40, 129, 156);
-  border: 1px dotted black;
+  border: 1px dotted grey;
   border-radius: 15px;
+  opacity: 0.8;
+  color: black;
   opacity: 0.8;
 }
 
@@ -281,8 +275,8 @@ button:hover {
   margin-top: 20vh;
   margin-left: 10vw;
   margin-right: 10vw;
-  background-color: "#000000";
-  color: whitesmoke;
+  background-color: "#fafafa";
+  color: white;
   line-height: 2em;
   padding: 1rem;
   min-height: 30vh;
@@ -294,7 +288,7 @@ button:hover {
 }
 
 #recommendations_link {
-  color: mediumblue;
+  color: darkblue;
   font-weight: bold;
 }
 
@@ -321,8 +315,8 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: black;
-  color: white;
+  background-color: #fafafa;
+  color: black;
   text-align: center;
   padding: 1rem;
   font-size: 1em;
@@ -375,7 +369,8 @@ footer {
     justify-content: center;
     list-style-type: none;
     font-weight: bold;
-    color: rgb(43, 124, 145);
+    background-color: #fafafa;
+    color: black;
     justify-content: center;
     margin-top: 1rem;
   }
@@ -409,6 +404,8 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: "#fafafa";
+    color: white;
   }
 
   th,
@@ -455,7 +452,8 @@ footer {
   ul.initiallist {
     list-style-type: none;
     font-weight: bold;
-    color: rgb(43, 124, 145);
+    background-color: "#fafafa";
+    color: white;
     justify-content: center;
   }
 
@@ -477,7 +475,8 @@ footer {
     flex-wrap: wrap;
     list-style-type: none;
     font-weight: bold;
-    color: rgb(43, 124, 145);
+    background-color: "#fafafa";
+    color: white;
     justify-content: center;
   }
 

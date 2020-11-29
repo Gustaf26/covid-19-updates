@@ -143,7 +143,13 @@ class CountrySearch extends React.Component {
         ) : null}
 
         {this.state.showsearch == false && this.state.errormsg == false ? (
-          <div className="countryinfo">
+          <div
+            className="countryinfo"
+            style={{
+              backgroundImage:
+                'url("https://unsplash.com/photos/jxfe3orC4G8"), cover',
+            }}
+          >
             <h3>COUNTRY DATA for {this.state.country.toUpperCase()}</h3>
             {countrydata}
           </div>
