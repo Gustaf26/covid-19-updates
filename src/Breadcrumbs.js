@@ -1,29 +1,28 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 class Breadcrumbs extends React.Component {
+  state = {
+    bread: "",
+  };
+  componentDidMount = () => {
+    const thisbread = this.props.actualbread.pop();
+    this.setState({ bread: thisbread });
+  };
 
-
-    state = {
-
-        bread:""
-    }
- componentDidMount = () => {
-
-       const thisbread = this.props.actualbread.pop()
-       this.setState({bread: thisbread})
-   }
-
-    render () {
-
+  render() {
     return (
-        <div id="breadbrumbs">
-            <Link className="nav-link" onClick={()=>this.props.update()} to="/">Home </Link>
-            <span> > </span>
-            {this.state.bread}
-        </div>
-    )
-}}
+      <div id="breadbrumbs">
+        <Link className="nav-link" onClick={() => this.props.update()} to="/">
+          Home{" "}
+        </Link>
+        <span>
+          {" "}
+          {">"} {this.state.bread}
+        </span>
+      </div>
+    );
+  }
+}
 
-
-export default Breadcrumbs
+export default Breadcrumbs;
