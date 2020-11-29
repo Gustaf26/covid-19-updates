@@ -114,7 +114,10 @@ class CountrySearch extends React.Component {
         <button className="backToTop" onClick={this.newSearch}>
           New Search
         </button>
-        <div onClick={() => this.showRecommendations()}>
+        <div
+          id="recommendations_link"
+          onClick={() => this.showRecommendations()}
+        >
           TRAVEL RECOMMENDATIONS
         </div>
       </div>

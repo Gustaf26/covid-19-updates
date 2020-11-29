@@ -8,7 +8,7 @@ import "./App.css";
 const Fade = React.forwardRef(function Fade(props, ref) {
   const { in: open, children, onEnter, onExited, ...other } = props;
   const style = {
-    opacity: open ? 1.5 : 0,
+    opacity: open ? 2.2 : 0,
     borderRadius: "10px",
     onStart: () => {
       if (open && onEnter) {
@@ -49,7 +49,9 @@ const Travelrec = ({ travelData, closeRecs }) => {
     <div>
       <Modal open={open} onClose={handleClose} BackdropComponent={Backdrop}>
         <Fade in={open}>
-          <div id="travelinfo_card">{travelData}</div>
+          <div id="travelinfo_card">
+            <p>{travelData}</p>
+          </div>
         </Fade>
       </Modal>
     </div>

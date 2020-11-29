@@ -283,6 +283,14 @@ button:hover {
   margin-right: 10vw;
   background-color: "#000000";
   color: whitesmoke;
+  line-height: 2em;
+  padding: 1rem;
+  min-height: 30vh;
+}
+
+#recommendations_link {
+  color: mediumblue;
+  font-weight: bold;
 }
 
 /*TABLE TOP 10 COUNTRIES*/
