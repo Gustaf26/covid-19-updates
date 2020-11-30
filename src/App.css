@@ -257,21 +257,22 @@ button {
 
 .country_data {
   position: absolute;
-  top: 10;
+  top: 0;
   left: -10;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   color: black;
+  height: 50%;
 }
 
 .country_image {
   position: relative;
   top: -20;
   left: 0;
-  height: 160%;
-  width: 140%;
+  height: 80vh;
+  width: 100%;
   filter: blur(4px);
 }
 
@@ -294,8 +295,9 @@ button {
   max-width: 60%;
   border-radius: 15px;
   opacity: 0.8;
+  background-color: #f0f0f0;
   color: black;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 #travelinfo_card {

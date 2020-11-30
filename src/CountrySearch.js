@@ -3,6 +3,7 @@ import React from "react";
 import Moment from "react-moment";
 import Key from "./keys";
 import "./App.css";
+import REACT_APP_ACCESS_KEY from "./.env";
 
 import Travelrec from "./Travelrec";
 
@@ -23,6 +24,8 @@ class CountrySearch extends React.Component {
       .get("https://www.trackcorona.live/api/travel")
       .then((res) => this.setState({ rawData: res.data.data }))
       .catch((err) => console.log(err));
+
+    console.log(process.env.REACT_APP_ACCESS_KEY);
   };
 
   getFromApi = (e) => {
@@ -47,10 +50,7 @@ class CountrySearch extends React.Component {
       }
     )
       .then((response) => response.json())
-      .then((data) => this.outputting(data))
-      .catch((err) => {
-        console.log(err);
-      });
+      .then((data) => this.outputting(data));
   };
 
   changeCountry = (e) => {
@@ -105,22 +105,19 @@ class CountrySearch extends React.Component {
         ) : (
           <h4>COUNTRY (PROVINCE): {cas.country}</h4>
         )}
-        <div>CASES CONFIRMED: {cas.confirmed}</div>
-        <div>CASES RECOVERED: {cas.recovered}</div>
-        <div>DEATH CASES: {cas.deaths}</div>
-        <div>
+        <p>CASES CONFIRMED: {cas.confirmed}</p>
+        <p>CASES RECOVERED: {cas.recovered}</p>
+        <p>DEATH CASES: {cas.deaths}</p>
+        <p>
           Latest update (hh:mm:ss):{" "}
           <Moment durationFromNow>{cas.timestamp}</Moment> from now
-        </div>
+        </p>
         <button className="backToTop" onClick={this.newSearch}>
           New Search
         </button>
-        <div
-          id="recommendations_link"
-          onClick={() => this.showRecommendations()}
-        >
+        <p id="recommendations_link" onClick={() => this.showRecommendations()}>
           TRAVEL RECOMMENDATIONS
-        </div>
+        </p>
       </div>
     ));
 
