@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import Breadcrumbs from "./Breadcrumbs";
 
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
@@ -63,11 +63,25 @@ class Navbar extends React.Component {
     }
   };
 
-  handleChange = (event, newValue) => {
-    if (newValue === 4) {
-      newValue = 0;
-    }
+  handleChange = (e, newValue) => {
+    //to = "/GlobalSearch";
+    //to="/ContagionList"
+    //to="/Us"
+    //to="/Usefullinks"
     this.setState({ value: newValue });
+    if (newValue === 0) {
+      this.setState({ newRoute: "/" });
+    } else if (newValue === 1) {
+      this.setState({ newRoute: "/GlobalSearch" });
+    } else if (newValue === 2) {
+      this.setState({ newRoute: "/ContagionList" });
+    } else if (newValue === 3) {
+      this.setState({ newRoute: "/CountrySearch" });
+    } else if (newValue === 4) {
+      this.setState({ newRoute: "/Us" });
+    } else if (newValue === 5) {
+      this.setState({ newRoute: "/Usefullinks" });
+    }
   };
 
   render() {
@@ -77,7 +91,7 @@ class Navbar extends React.Component {
     //to="/Usefullinks"
     return (
       <div>
-        {this.state.newRoute && <Redirect to={{ pathname: "/" }} />}
+        {this.state.newRoute ? <Redirect to={this.state.newRoute} /> : null}
 
         {this.state.showmenu == false ? (
           <button type="submit" className="openbtn" onClick={this.openmenu}>
@@ -91,14 +105,32 @@ class Navbar extends React.Component {
               className="initiallist"
               style={{ backgroundColor: "#f0f0f0" }}
               value={this.state.value}
-              onChange={(e) => this.handleChange(e, this.state.value + 1)}
               aria-label="styled tabs example"
             >
-              <StyledTab label="Home" />
-              <StyledTab label="Global Statistics" />
-              <StyledTab label="Most Infected Countries" />
-              <StyledTab label="U.S." />
-              <StyledTab label="Useful Links" />
+              <StyledTab
+                label="Home"
+                onClick={(e) => this.handleChange(e, 0)}
+              />
+              <StyledTab
+                onClick={(e) => this.handleChange(e, 1)}
+                label="Global Statistics"
+              />
+              <StyledTab
+                onClick={(e) => this.handleChange(e, 2)}
+                label="Most Infected Countries"
+              />
+              <StyledTab
+                onClick={(e) => this.handleChange(e, 3)}
+                label="Search By Country"
+              />
+              <StyledTab
+                onClick={(e) => this.handleChange(e, 4)}
+                label="U.S."
+              />
+              <StyledTab
+                onClick={(e) => this.handleChange(e, 5)}
+                label="Useful Links"
+              />
             </StyledTabs>
           </div>
         ) : null}
