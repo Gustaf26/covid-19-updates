@@ -32,7 +32,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: #bebcbc;
+  background-color: #d6d4d4;
   color: white;
 }
 
@@ -108,7 +108,7 @@ span.advice-highlights {
   border: 1px dotted grey;
   font-size: 1.25em;
   background-color: "#f0f0f0";
-  color: rgb(236, 230, 230);
+  color: rgb(88, 87, 87);
   padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
@@ -122,13 +122,15 @@ ul.initiallist {
   margin-bottom: 0;
   border-radius: 10px;
   font-family: "Open Sans", sans-serif;
-  color: black;
+  background-color: "#f0f0f0";
+  color: rgb(88, 87, 87);
 }
 
 ul.initiallist li {
   font-size: 1em;
   border-radius: 10px;
-  color: black;
+  background-color: "#f0f0f0";
+  color: rgb(88, 87, 87);
 }
 
 .usefulLinks {
@@ -238,6 +240,7 @@ button {
 
 .globalinfo,
 .countryinfo {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -246,7 +249,30 @@ button {
   margin-bottom: 5rem;
   border-radius: 10px;
   color: black;
-  background-image: url("https://media.istockphoto.com/photos/protect-yourself-with-mask-concepts-on-covid19-virus-outbreak-in-picture-id1217119202?b=1&k=6&m=1217119202&s=170667a&w=0&h=Tky3tjrIjqUTbFEl2W9nyDb48c5kwU_IsFvB4_4Lsb8=");
+}
+
+.country_title {
+  color: #0a0a0a;
+}
+
+.country_data {
+  position: absolute;
+  top: 10;
+  left: -10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: black;
+}
+
+.country_image {
+  position: relative;
+  top: -20;
+  left: 0;
+  height: 160%;
+  width: 140%;
+  filter: blur(4px);
 }
 
 .backToTop {
@@ -264,7 +290,8 @@ button {
 .card {
   margin: 1rem;
   padding: 1rem;
-  border: 1px dotted grey;
+  border: 1px dotted black;
+  max-width: 60%;
   border-radius: 15px;
   opacity: 0.8;
   color: black;

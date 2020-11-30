@@ -42,19 +42,28 @@ class Navbar extends React.Component {
         ) : null}
 
         {this.state.showmenu == true ? (
-          <ul className="initiallist" style={{ color: "whitesmoke" }}>
+          <ul className="initiallist" style={{ backgroundColor: "#f0f0f0" }}>
             <li>
-              <Redirect
+              <Link
                 to={{ pathname: "/" }}
                 className="nav-link"
-                style={{ textDecoration: "none", color: "whitesmoke" }}
+                style={{
+                  textDecoration: "none",
+                  backgroundColor: "#f0f0f0",
+                  color: "black",
+                }}
                 onClick={this.closemenu}
-              />
-              Home
+              >
+                Home
+              </Link>
             </li>
             <li onClick={this.closemenu}>
               <Link
-                style={{ textDecoration: "none", color: "whitesmoke" }}
+                style={{
+                  textDecoration: "none",
+                  backgroundColor: "#f0f0f0",
+                  color: "black",
+                }}
                 to="/GlobalSearch"
               >
                 Global Statistics
@@ -62,7 +71,11 @@ class Navbar extends React.Component {
             </li>
             <li onClick={this.closemenu}>
               <Link
-                style={{ textDecoration: "none", color: "whitesmoke" }}
+                style={{
+                  textDecoration: "none",
+                  backgroundColor: "#f0f0f0",
+                  color: "black",
+                }}
                 to="/CountrySearch"
               >
                 Search By Country
@@ -70,7 +83,11 @@ class Navbar extends React.Component {
             </li>
             <li onClick={this.closemenu}>
               <Link
-                style={{ textDecoration: "none", color: "whitesmoke" }}
+                style={{
+                  textDecoration: "none",
+                  backgroundColor: "#f0f0f0",
+                  color: "black",
+                }}
                 to="/ContagionList"
               >
                 Most Infected Countries
@@ -78,7 +95,11 @@ class Navbar extends React.Component {
             </li>
             <li onClick={this.closemenu}>
               <Link
-                style={{ textDecoration: "none", color: "whitesmoke" }}
+                style={{
+                  textDecoration: "none",
+                  backgroundColor: "#f0f0f0",
+                  color: "black",
+                }}
                 to="/Us"
               >
                 U.S.
@@ -86,7 +107,11 @@ class Navbar extends React.Component {
             </li>
             <li onClick={this.closemenu}>
               <Link
-                style={{ textDecoration: "none", color: "whitesmoke" }}
+                style={{
+                  textDecoration: "none",
+                  backgroundColor: "#f0f0f0",
+                  color: "black",
+                }}
                 to="/Usefullinks"
               >
                 Useful Links

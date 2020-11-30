@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import Moment from "react-moment";
 import Key from "./keys";
+import "./App.css";
 
 import Travelrec from "./Travelrec";
 
@@ -143,15 +144,17 @@ class CountrySearch extends React.Component {
         ) : null}
 
         {this.state.showsearch == false && this.state.errormsg == false ? (
-          <div
-            className="countryinfo"
-            style={{
-              backgroundImage:
-                'url("https://unsplash.com/photos/jxfe3orC4G8"), cover',
-            }}
-          >
-            <h3>COUNTRY DATA for {this.state.country.toUpperCase()}</h3>
-            {countrydata}
+          <div className="countryinfo">
+            <img
+              className="country_image"
+              src="https://media.istockphoto.com/photos/protect-yourself-with-mask-concepts-on-covid19-virus-outbreak-in-picture-id1217119202?b=1&k=6&m=1217119202&s=170667a&w=0&h=Tky3tjrIjqUTbFEl2W9nyDb48c5kwU_IsFvB4_4Lsb8="
+            />
+            <div className="country_data">
+              <h3 className="country_title">
+                COUNTRY DATA for {this.state.country.toUpperCase()}
+              </h3>
+              {countrydata}
+            </div>
           </div>
         ) : null}
 
