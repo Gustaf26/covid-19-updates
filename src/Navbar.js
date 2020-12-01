@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import Breadcrumbs from "./Breadcrumbs";
 
@@ -32,115 +32,103 @@ const StyledTab = withStyles((theme) => ({
   },
 }))((props) => <Tab disableRipple {...props} />);
 
-class Navbar extends React.Component {
-  state = {
-    showmenu: false,
-    bread: [],
-    value: 0,
-    newRoute: "",
+const Navbar = (props) => {
+  const [showmenu, setMenu] = useState(false);
+  const [bread, setBread] = useState([]);
+  const [value, setValue] = useState(0);
+  const [newRoute, setRoute] = useState("");
+
+  const nollstall = () => {
+    setBread([]);
+    props.reopenadvice();
   };
 
-  nollstall = () => {
-    this.setState({ bread: [] });
-    this.props.reopenadvice();
-  };
-
-  openmenu = (e) => {
+  const openmenu = (e) => {
     e.preventDefault();
 
-    this.setState({ showmenu: true, bread: [] });
-    this.props.closeadvice();
-    this.props.closetext();
+    setMenu(true);
+    setBread([]);
+    props.closeadvice();
+    props.closetext();
   };
 
-  closemenu = (e) => {
-    this.setState({ showmenu: false });
+  const closemenu = (e) => {
+    setMenu(false);
 
     if (e.target.innerText !== "Home") {
       const breadarr = [...this.state.bread];
       breadarr.push(e.target.innerText);
-      this.setState({ bread: breadarr });
+      setBread(breadarr);
     }
   };
 
-  handleChange = (e, newValue) => {
+  const handleChange = (e, newValue) => {
     //to = "/GlobalSearch";
     //to="/ContagionList"
     //to="/Us"
     //to="/Usefullinks"
-    this.setState({ value: newValue });
+    setValue(newValue);
     if (newValue === 0) {
-      this.setState({ newRoute: "/" });
+      setRoute("/");
     } else if (newValue === 1) {
-      this.setState({ newRoute: "/GlobalSearch" });
+      setRoute("/GlobalSearch");
     } else if (newValue === 2) {
-      this.setState({ newRoute: "/ContagionList" });
+      setRoute("/ContagionList");
     } else if (newValue === 3) {
-      this.setState({ newRoute: "/CountrySearch" });
+      setRoute("/CountrySearch");
     } else if (newValue === 4) {
-      this.setState({ newRoute: "/Us" });
+      setRoute("/Us");
     } else if (newValue === 5) {
-      this.setState({ newRoute: "/Usefullinks" });
+      setRoute("/Usefullinks");
     }
   };
 
-  render() {
-    //to = "/GlobalSearch";
-    //to="/ContagionList"
-    //to="/Us"
-    //to="/Usefullinks"
-    return (
-      <div>
-        {this.state.newRoute ? <Redirect to={this.state.newRoute} /> : null}
+  return (
+    <div>
+      {newRoute ? <Redirect to={newRoute} /> : null}
 
-        {this.state.showmenu == false ? (
-          <button type="submit" className="openbtn" onClick={this.openmenu}>
-            ☰ Menu
-          </button>
-        ) : null}
+      {showmenu == false ? (
+        <button type="submit" className="openbtn" onClick={(e) => openmenu(e)}>
+          ☰ Menu
+        </button>
+      ) : null}
 
-        {this.state.showmenu == true ? (
-          <div>
-            <StyledTabs
-              className="initiallist"
-              style={{ backgroundColor: "#f0f0f0" }}
-              value={this.state.value}
-              aria-label="styled tabs example"
-            >
-              <StyledTab
-                label="Home"
-                onClick={(e) => this.handleChange(e, 0)}
-              />
-              <StyledTab
-                onClick={(e) => this.handleChange(e, 1)}
-                label="Global Statistics"
-              />
-              <StyledTab
-                onClick={(e) => this.handleChange(e, 2)}
-                label="Most Infected Countries"
-              />
-              <StyledTab
-                onClick={(e) => this.handleChange(e, 3)}
-                label="Search By Country"
-              />
-              <StyledTab
-                onClick={(e) => this.handleChange(e, 4)}
-                label="U.S."
-              />
-              <StyledTab
-                onClick={(e) => this.handleChange(e, 5)}
-                label="Useful Links"
-              />
-            </StyledTabs>
-          </div>
-        ) : null}
+      {showmenu == true ? (
+        <div id="navbar_div">
+          <StyledTabs
+            orientation="vertical"
+            className="initiallist"
+            style={{ backgroundColor: "#f0f0f0" }}
+            value={value}
+            aria-label="styled tabs example"
+          >
+            <StyledTab label="Home" onClick={(e) => handleChange(e, 0)} />
+            <StyledTab
+              onClick={(e) => handleChange(e, 1)}
+              label="Global Statistics"
+            />
+            <StyledTab
+              onClick={(e) => handleChange(e, 2)}
+              label="Most Infected Countries"
+            />
+            <StyledTab
+              onClick={(e) => handleChange(e, 3)}
+              label="Search By Country"
+            />
+            <StyledTab onClick={(e) => handleChange(e, 4)} label="U.S." />
+            <StyledTab
+              onClick={(e) => handleChange(e, 5)}
+              label="Useful Links"
+            />
+          </StyledTabs>
+        </div>
+      ) : null}
 
-        {this.state.bread.length ? (
-          <Breadcrumbs update={this.nollstall} actualbread={this.state.bread} />
-        ) : null}
-      </div>
-    );
-  }
-}
+      {bread.length ? (
+        <Breadcrumbs update={() => nollstall()} actualbread={bread} />
+      ) : null}
+    </div>
+  );
+};
 
 export default Navbar;
