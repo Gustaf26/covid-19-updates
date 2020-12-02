@@ -329,8 +329,9 @@ button {
 
 .global_image {
   width: 100%;
-  opacity: 0.3;
-  z-index: 3;
+  height: 100%;
+  opacity: 0.4;
+  z-index: -1;
   border-radius: 10px;
   position: absolute;
   top: 0;
