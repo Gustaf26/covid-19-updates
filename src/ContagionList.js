@@ -49,7 +49,7 @@ class ContagionList extends React.Component {
 
     //let doubleselectarr = selectarr.filter(cit=>cit.city =="")
     //console.log(globalarr)
-    let sortedarr = selectarr.filter((pers) => pers.deaths > 5000);
+    let sortedarr = selectarr.filter((pers) => pers.deaths > 20000);
 
     this.setState({ data: sortedarr });
   };
