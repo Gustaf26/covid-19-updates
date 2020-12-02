@@ -24,8 +24,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(8px + 2vmin);
+  font-size: calc(6px + 2vmin);
   color: black;
+  padding-top: 1rem;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: calc(14px + 2vmin);
 }
 
 .container {
@@ -33,11 +39,10 @@ body {
   flex-direction: row;
   justify-content: center;
   background-color: #d6d4d4;
-  color: white;
 }
 
 h3 {
-  color: rgb(233, 239, 241);
+  color: rgb(94, 96, 97);
 }
 
 .usefulLinks {
@@ -46,7 +51,7 @@ h3 {
   list-style-type: none;
   font-weight: bold;
   background-color: "#fafafa";
-  border: 1px dotted white;
+  border: 1px dotted black;
   border-radius: 15px;
   opacity: 0.8;
   max-height: 690px;
@@ -55,11 +60,11 @@ h3 {
 #countdown-outbreak {
   font-weight: bold;
   background-color: "#0f0f0f";
-  border: 1px dotted white;
+  border: 1px dotted black;
   border-radius: 15px;
   opacity: 0.8;
   padding: 1rem;
-  color: white;
+  color: black;
 }
 
 .usefulLinks li {
@@ -84,9 +89,9 @@ h3 {
 }
 
 p#advices {
-  line-height: 2.25rem;
-  font-size: 1em;
-  color: white;
+  line-height: 2.5rem;
+  font-size: 1.25em;
+  color: black;
 }
 
 #underline {
@@ -121,20 +126,18 @@ span.advice-highlights {
   margin-top: 1.5rem;
   margin-bottom: 0;
   border-radius: 5px;
-  /* font-family: "Open Sans", sans-serif; */
   background-color: "#f0f0f0";
-  color: rgb(88, 87, 87);
 }
 
 ul.initiallist li {
   font-size: 1em;
   border-radius: 10px;
-  background-color: "#f0f0f0";
-  color: rgb(88, 87, 87);
+  color: rgb(29, 28, 28);
 }
 
 .usefulLinks {
   max-height: 285px;
+  position: relative;
 }
 
 /*BREADCRUMBS*/
@@ -211,13 +214,13 @@ button {
 /*INITIAL WARNING*/
 
 #warn h3 {
-  color: white;
+  color: rgb(102, 101, 101);
   font-size: 1em;
   font-weight: bold;
 }
 
 #warn p {
-  color: white;
+  color: rgb(104, 103, 103);
   font-size: 1em;
   font-weight: bold;
 }
@@ -319,6 +322,22 @@ button {
 #recommendations_link {
   color: darkblue;
   font-weight: bold;
+}
+
+.global_image {
+  width: 90%;
+  opacity: 0.3;
+  z-index: 3;
+}
+
+.useful_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.3;
+  max-height: 100%;
+  border-radius: 10px;
 }
 
 /*TABLE TOP 10 COUNTRIES*/
@@ -434,7 +453,6 @@ footer {
     flex-direction: row;
     flex-wrap: wrap;
     background-color: "#fafafa";
-    color: white;
   }
 
   th,
@@ -482,7 +500,6 @@ footer {
     list-style-type: none;
     font-weight: bold;
     background-color: "#fafafa";
-    color: white;
     justify-content: center;
   }
 
@@ -505,13 +522,11 @@ footer {
     list-style-type: none;
     font-weight: bold;
     background-color: "#fafafa";
-    color: white;
     justify-content: center;
   }
 
   ul.initiallist li {
     padding: 1rem;
+    color: black;
   }
-
-  /*tr.card {width:800px;}*/
 }

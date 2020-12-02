@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import Breadcrumbs from "./Breadcrumbs";
 
@@ -11,10 +11,11 @@ const StyledTabs = withStyles({
     display: "flex",
     justifyContent: "center",
     backgroundColor: "transparent",
+    color: "black",
     "& > span": {
       maxWidth: 40,
       width: "100%",
-      backgroundColor: "#000",
+      backgroundColor: "black",
     },
   },
 })((props) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
@@ -22,12 +23,12 @@ const StyledTabs = withStyles({
 const StyledTab = withStyles((theme) => ({
   root: {
     textTransform: "none",
-    color: "#000000",
     fontWeight: theme.typography.fontWeightRegular,
     fontSize: theme.typography.pxToRem(15),
     marginRight: theme.spacing(1),
     "&:focus": {
       opacity: 1,
+      color: "black",
     },
   },
 }))((props) => <Tab disableRipple {...props} />);
@@ -37,6 +38,7 @@ const Navbar = (props) => {
   const [bread, setBread] = useState([]);
   const [value, setValue] = useState(0);
   const [newRoute, setRoute] = useState("");
+  const [direction, setDirection] = useState("horizontal");
 
   const nollstall = () => {
     setBread([]);
@@ -83,6 +85,14 @@ const Navbar = (props) => {
     }
   };
 
+  useEffect(() => {
+    if (window.innerWidth > 1000) {
+      setDirection("horizontal");
+    } else {
+      setDirection("vertical");
+    }
+  }, []);
+
   return (
     <div>
       {newRoute ? <Redirect to={newRoute} /> : null}
@@ -96,7 +106,7 @@ const Navbar = (props) => {
       {showmenu == true ? (
         <div id="navbar_div">
           <StyledTabs
-            orientation="vertical"
+            orientation={direction ? direction : null}
             className="initiallist"
             style={{ backgroundColor: "#f0f0f0" }}
             value={value}

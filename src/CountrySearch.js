@@ -3,7 +3,6 @@ import React from "react";
 import Moment from "react-moment";
 import Key from "./keys";
 import "./App.css";
-import REACT_APP_ACCESS_KEY from "./.env";
 
 import Travelrec from "./Travelrec";
 
@@ -20,12 +19,11 @@ class CountrySearch extends React.Component {
 
   componentDidMount = () => {
     this.setState({ showsearch: true });
+
     axios
       .get("https://www.trackcorona.live/api/travel")
       .then((res) => this.setState({ rawData: res.data.data }))
       .catch((err) => console.log(err));
-
-    console.log(process.env.REACT_APP_ACCESS_KEY);
   };
 
   getFromApi = (e) => {
@@ -45,7 +43,7 @@ class CountrySearch extends React.Component {
         method: "GET",
         headers: {
           "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
-          "x-rapidapi-key": `${Key}`,
+          "x-rapidapi-key": `${Key.Key}`,
         },
       }
     )
@@ -144,7 +142,7 @@ class CountrySearch extends React.Component {
           <div className="countryinfo">
             <img
               className="country_image"
-              src="https://media.istockphoto.com/photos/protect-yourself-with-mask-concepts-on-covid19-virus-outbreak-in-picture-id1217119202?b=1&k=6&m=1217119202&s=170667a&w=0&h=Tky3tjrIjqUTbFEl2W9nyDb48c5kwU_IsFvB4_4Lsb8="
+              src="https://media.istockphoto.com/vectors/virus-bacteria-vector-background-cells-disease-outbreak-coronavirus-vector-id1211544068?k=6&m=1211544068&s=612x612&w=0&h=IvZo-HIL4o6qhUaTno8SKcnPmBf6niW1YEBjBzDABHk="
             />
             <div className="country_data">
               <h3 className="country_title">
