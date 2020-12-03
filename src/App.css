@@ -166,6 +166,7 @@ button {
 
 #countryruta {
   border-radius: 10px;
+  margin: 0 auto;
 }
 
 #countrysearchbtn {
@@ -174,6 +175,7 @@ button {
   padding: 0.75rem;
   border: white;
   color: black;
+  margin-left: 0 auto;
 }
 
 #countrysearchbtn:hover {
@@ -270,15 +272,6 @@ button {
   height: 50%;
 }
 
-.country_image {
-  position: relative;
-  top: -20;
-  left: 0;
-  height: 80vh;
-  width: 120%;
-  filter: blur(4px);
-}
-
 .backToTop {
   color: black;
   margin-top: 1.5rem;
@@ -326,6 +319,15 @@ button {
 }
 
 /*CARD IMAGES*/
+
+.country_image {
+  position: relative;
+  top: -20;
+  left: 0;
+  height: 80vh;
+  width: 120%;
+  filter: blur(4px);
+}
 
 .global_image {
   width: 100%;
