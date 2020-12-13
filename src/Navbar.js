@@ -28,7 +28,7 @@ const StyledTab = withStyles((theme) => ({
     marginRight: theme.spacing(1),
     "&:focus": {
       opacity: 1,
-      color: "black",
+      color: "#000000",
     },
   },
 }))((props) => <Tab disableRipple {...props} />);
@@ -65,10 +65,6 @@ const Navbar = (props) => {
   };
 
   const handleChange = (e, newValue) => {
-    //to = "/GlobalSearch";
-    //to="/ContagionList"
-    //to="/Us"
-    //to="/Usefullinks"
     setValue(newValue);
     if (newValue === 0) {
       setRoute("/");
@@ -108,7 +104,7 @@ const Navbar = (props) => {
           <StyledTabs
             orientation={direction ? direction : null}
             className="initiallist"
-            style={{ backgroundColor: "#f0f0f0" }}
+            style={{ backgroundColor: "#ffffff" }}
             value={value}
             aria-label="styled tabs example"
           >

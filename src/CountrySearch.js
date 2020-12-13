@@ -52,8 +52,6 @@ class CountrySearch extends React.Component {
   };
 
   changeCountry = (e) => {
-    //   this.setState({country:""})
-
     this.setState({ country: e.target.value, data: [] });
   };
 
@@ -66,12 +64,15 @@ class CountrySearch extends React.Component {
         return;
       }
 
-      dataarr.push({
-        country: dat.data.covid19Stats[0].country,
-        confirmed: <p>{dat.data.covid19Stats[0].confirmed}</p>,
-        recovered: <p>{dat.data.covid19Stats[0].recovered}</p>,
-        deaths: <p>{dat.data.covid19Stats[0].deaths}</p>,
-        timestamp: <p>{dat.data.covid19Stats[0].lastUpdate}</p>,
+      dataarr = dat.data.covid19Stats.map((region) => {
+        return {
+          region: region,
+          province: <p>{region.province}</p>,
+          confirmed: <p>{region.confirmed}</p>,
+          recovered: <p>{region.recovered}</p>,
+          deaths: <p>{region.deaths}</p>,
+          timestamp: <p>{region.lastUpdate}</p>,
+        };
       });
 
       let travelInfoArr;
@@ -96,20 +97,51 @@ class CountrySearch extends React.Component {
   };
   render() {
     const countrydata = this.state.data.map((cas, index) => (
-      <div className="card">
-        {" "}
-        {index == 0 ? (
-          <h4>COUNTRY AS A WHOLE: {cas.country} </h4>
-        ) : (
-          <h4>COUNTRY (PROVINCE): {cas.country}</h4>
-        )}
-        <p>CASES CONFIRMED: {cas.confirmed}</p>
-        <p>CASES RECOVERED: {cas.recovered}</p>
-        <p>DEATH CASES: {cas.deaths}</p>
-        <p>
-          Latest update (hh:mm:ss):{" "}
-          <Moment durationFromNow>{cas.timestamp}</Moment> from now
-        </p>
+      <tbody key={index}>
+        <tr className="card">
+          <td>{cas.province}</td>
+          <td>{cas.confirmed}</td>
+          <td>{cas.deaths}</td>
+          <td>{cas.recovered}</td>
+          <td>
+            <Moment durationFromNow>{cas.timestamp}</Moment> from now
+          </td>
+        </tr>
+      </tbody>
+    ));
+
+    return this.state.showsearch == true ? (
+      <div>
+        <h3>ENTER COUNTRY NAME (Excepting China and the US)</h3>
+
+        <form className="forma" onSubmit={this.getFromApi}>
+          <input
+            id="countryruta"
+            type="text"
+            onChange={(e) => this.changeCountry(e)}
+          />
+          <button id="countrysearchbtn" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    ) : this.state.showsearch == false && this.state.errormsg == false ? (
+      <div className="countryinfo">
+        <h3 className="country_title">
+          COUNTRY DATA for {this.state.country.toUpperCase()}
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <th>PROVINCE</th>
+              <th>CONFIRMED</th>
+              <th>CASUALTIES</th>
+              <th>RECOVERED</th>
+              <th>UPDATED (hh:mm:ss)</th>
+            </tr>
+          </thead>
+          {countrydata}
+        </table>
         <button className="backToTop" onClick={this.newSearch}>
           New Search
         </button>
@@ -117,59 +149,22 @@ class CountrySearch extends React.Component {
           TRAVEL RECOMMENDATIONS
         </p>
       </div>
-    ));
-
-    return (
-      <div id="countrymaincard">
-        {this.state.showsearch == true ? (
-          <div>
-            <h3>ENTER COUNTRY NAME (Excepting China and the US)</h3>
-
-            <form className="forma" onSubmit={this.getFromApi}>
-              <input
-                id="countryruta"
-                type="text"
-                onChange={(e) => this.changeCountry(e)}
-              />
-              <button id="countrysearchbtn" type="submit">
-                Search
-              </button>
-            </form>
-          </div>
-        ) : null}
-
-        {this.state.showsearch == false && this.state.errormsg == false ? (
-          <div className="countryinfo">
-            <img
-              className="country_image"
-              src="https://media.istockphoto.com/vectors/virus-bacteria-vector-background-cells-disease-outbreak-coronavirus-vector-id1211544068?k=6&m=1211544068&s=612x612&w=0&h=IvZo-HIL4o6qhUaTno8SKcnPmBf6niW1YEBjBzDABHk="
-            />
-            <div className="country_data">
-              <h3 className="country_title">
-                COUNTRY DATA for {this.state.country.toUpperCase()}
-              </h3>
-              {countrydata}
-            </div>
-          </div>
-        ) : null}
-
-        {this.state.errormsg == true && this.state.showsearch == false ? (
-          <div className="notvalidcountry">
-            You need to enter a valid country name
-            <div>
-              <button className="backToTop" onClick={this.newSearch}>
-                New Search
-              </button>
-            </div>
-          </div>
-        ) : null}
-        {this.state.showRecs && (
-          <Travelrec
-            travelData={this.state.travelData}
-            closeRecs={this.showRecommendations}
-          />
-        )}
+    ) : this.state.errormsg == true && this.state.showsearch == false ? (
+      <div className="notvalidcountry">
+        You need to enter a valid country name
+        <div>
+          <button className="backToTop" onClick={this.newSearch}>
+            New Search
+          </button>
+        </div>
       </div>
+    ) : (
+      this.state.showRecs && (
+        <Travelrec
+          travelData={this.state.travelData}
+          closeRecs={this.showRecommendations}
+        />
+      )
     );
   }
 }
