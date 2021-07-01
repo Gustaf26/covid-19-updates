@@ -3,6 +3,7 @@ import ContagionList from "./ContagionList";
 import CountrySearch from "./CountrySearch";
 import GlobalSearch from "./GlobalSearch";
 import Usefullinks from "./usefullinks";
+import Map from "./Map";
 import Moment from "react-moment";
 import Navbar from "./Navbar";
 import { BrowserRouter, Route } from "react-router-dom";
@@ -136,7 +137,7 @@ class App extends React.Component {
               <Route path="/CountrySearch" component={CountrySearch} />
               <Route path="/ContagionList" component={ContagionList} />
               <Route path="/Us" component={US} />
-              <Route path="/Usefullinks" component={Usefullinks} />
+              <Route path="/Usefullinks" component={Map} />
             </BrowserRouter>
           </div>
         </div>

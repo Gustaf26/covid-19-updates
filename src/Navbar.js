@@ -122,10 +122,7 @@ const Navbar = (props) => {
               label="Search By Country"
             />
             <StyledTab onClick={(e) => handleChange(e, 4)} label="U.S." />
-            <StyledTab
-              onClick={(e) => handleChange(e, 5)}
-              label="Useful Links"
-            />
+            <StyledTab onClick={(e) => handleChange(e, 5)} label="World Map" />
           </StyledTabs>
         </div>
       ) : null}
