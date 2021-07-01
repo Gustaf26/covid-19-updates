@@ -3,10 +3,21 @@ import WorldMap from "react-world-map";
 
 function Map() {
   const [selected, onSelect] = useState(null);
+
+  const showStats = (cont) => {
+    document.getElementById(`${cont.toUpperCase()}`).style.border =
+      "2px solid black";
+  };
+
   return (
     <>
-      <h1> Hello World Map!</h1>
-      <WorldMap selected={selected} onSelect={onSelect} />
+      <h1>See stats on each continent</h1>
+      <WorldMap
+        selected={selected}
+        onSelect={(continent) => {
+          showStats(continent);
+        }}
+      />
     </>
   );
 }
