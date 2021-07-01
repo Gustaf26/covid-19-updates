@@ -294,7 +294,7 @@ button {
   background-color: #f0f0f0;
   color: black;
   opacity: 0.7;
-  position: relative;
+  /* position: relative; */
 }
 
 #travelinfo_card {
