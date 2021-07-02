@@ -19,9 +19,11 @@ const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
+    padding: window.innerWidth > 700 ? "0.5em" : "0.2em",
   },
   body: {
-    fontSize: 14,
+    fontSize: window.innerWidth > 600 ? 14 : 12,
+    padding: window.innerWidth > 700 ? "0.5em" : "0.2em",
   },
 }))(TableCell);
 
@@ -167,7 +169,7 @@ const CountrySearch = () => {
     </div>
   ) : showsearch == false && errormsg == false ? (
     <div className="countryinfo">
-      <h3 className="country_title">{country.toUpperCase()}</h3>
+      <h6 className="country_title">{country.toUpperCase()}</h6>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>

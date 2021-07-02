@@ -281,6 +281,7 @@ button {
   margin-top: 1.5rem;
   border: 1px solid grey;
   background-color: "#fafafa";
+  border-radius: 5px;
 }
 
 .backToTop:hover {
@@ -402,8 +403,19 @@ footer {
   padding: 1rem;
   font-size: 1em;
 }
+@media screen and (min-width: 200px) and (max-width: 400px) {
+  th,
+  td {
+    font-size: 0.6em;
+    padding: 0.2em;
+  }
 
-@media screen and (max-width: 500px) {
+  #warn {
+    font-size: small;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 500px) {
   .App-header {
     max-height: 150px;
   }
@@ -421,6 +433,15 @@ footer {
   .forma {
     display: flex;
     flex-direction: column;
+  }
+
+  #warn {
+    font-size: small;
+  }
+
+  /*Navbar */
+  #navbar_div {
+    font-size: 0.8em;
   }
 
   /*USEFUL LINKS*/
@@ -506,6 +527,10 @@ footer {
     flex-wrap: wrap;
   }
 
+  #warn {
+    font-size: small;
+  }
+
   th,
   td {
     font-size: 0.8em;
@@ -547,7 +572,7 @@ footer {
   th,
   td {
     font-size: 0.8em;
-    padding: 0.2em;
+    padding: 0.4em;
   }
   #countryruta {
     border-radius: 10px;
@@ -621,7 +646,7 @@ footer {
   th,
   td {
     font-size: 0.95em;
-    padding: 0.2em;
+    padding: 0.5em;
   }
 
   #countryruta {
