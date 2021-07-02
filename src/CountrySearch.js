@@ -83,7 +83,12 @@ const CountrySearch = () => {
       }
     )
       .then((response) => response.json())
-      .then((data) => outputting(data));
+      .then((data) => outputting(data))
+      .catch((err) => {
+        alert(
+          "You might have misspelled the name of the country. Please, try again"
+        );
+      });
   };
 
   const changeCountry = (e) => {
@@ -95,7 +100,11 @@ const CountrySearch = () => {
     if (!dat.data.covid19Stats.length < 218 && country) {
       let dataarr = [...data];
 
-      if (!dat.data.covid19Stats || dat.data.covid19Stats[0].country === "US") {
+      if (
+        !dat.data.covid19Stats ||
+        dat.data.covid19Stats[0].country === "US" ||
+        dat.data.covid19Stats[0].country !== country
+      ) {
         setError(true);
         return;
       }
@@ -152,60 +161,68 @@ const CountrySearch = () => {
     );
   }, [data]);
 
-  return showsearch == true ? (
+  return (
     <div>
-      <h7>ENTER COUNTRY NAME (Excepting China and the US)</h7>
+      {showsearch == true ? (
+        <div>
+          <h7>ENTER COUNTRY NAME (Excepting China and the US)</h7>
 
-      <form className="forma" onSubmit={getFromApi}>
-        <input
-          id="countryruta"
-          type="text"
-          onChange={(e) => changeCountry(e)}
-        />
-        <button id="countrysearchbtn" type="submit">
-          Search
-        </button>
-      </form>
+          <form className="forma" onSubmit={getFromApi}>
+            <input
+              id="countryruta"
+              type="text"
+              onChange={(e) => changeCountry(e)}
+            />
+            <button id="countrysearchbtn" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      ) : showsearch == false && errormsg == false ? (
+        <div className="countryinfo">
+          <h6 className="country_title">{country.toUpperCase()}</h6>
+          <TableContainer component={Paper}>
+            <Table className={classes.table} aria-label="customized table">
+              <TableHead>
+                <TableRow>
+                  <StyledTableCell align="center">PROVINCE</StyledTableCell>
+                  <StyledTableCell align="center">CONFIRMED</StyledTableCell>
+                  <StyledTableCell align="center">CASUALTIES</StyledTableCell>
+                  <StyledTableCell align="center">RECOVERED</StyledTableCell>
+                  <StyledTableCell align="center">
+                    UPDATED (hh:mm:ss)
+                  </StyledTableCell>
+                </TableRow>
+              </TableHead>
+              {countryData}
+            </Table>
+          </TableContainer>
+          <button className="backToTop" onClick={newSearch}>
+            New Search
+          </button>
+          <p id="recommendations_link" onClick={() => showRecommendations()}>
+            TRAVEL RECOMMENDATIONS
+          </p>
+        </div>
+      ) : errormsg == true && showsearch == false && !showRecs ? (
+        <div className="notvalidcountry">
+          You need to enter a valid country name
+          <div>
+            <button
+              className="backToTop"
+              style={{ marginBottom: "2rem" }}
+              onClick={newSearch}
+            >
+              New Search
+            </button>
+          </div>
+        </div>
+      ) : null}
+
+      {showRecs && (
+        <Travelrec travelData={travelData} closeRecs={showRecommendations} />
+      )}
     </div>
-  ) : showsearch == false && errormsg == false ? (
-    <div className="countryinfo">
-      <h6 className="country_title">{country.toUpperCase()}</h6>
-      <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell align="center">PROVINCE</StyledTableCell>
-              <StyledTableCell align="center">CONFIRMED</StyledTableCell>
-              <StyledTableCell align="center">CASUALTIES</StyledTableCell>
-              <StyledTableCell align="center">RECOVERED</StyledTableCell>
-              <StyledTableCell align="center">
-                UPDATED (hh:mm:ss)
-              </StyledTableCell>
-            </TableRow>
-          </TableHead>
-          {countryData}
-        </Table>
-      </TableContainer>
-      <button className="backToTop" onClick={newSearch}>
-        New Search
-      </button>
-      <p id="recommendations_link" onClick={() => showRecommendations()}>
-        TRAVEL RECOMMENDATIONS
-      </p>
-    </div>
-  ) : errormsg == true && showsearch == false ? (
-    <div className="notvalidcountry">
-      You need to enter a valid country name
-      <div>
-        <button className="backToTop" onClick={newSearch}>
-          New Search
-        </button>
-      </div>
-    </div>
-  ) : (
-    showRecs && (
-      <Travelrec travelData={travelData} closeRecs={showRecommendations} />
-    )
   );
 };
 

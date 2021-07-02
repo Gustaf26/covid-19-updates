@@ -217,6 +217,10 @@ button {
   font-weight: bold;
 }
 
+#recommendations_link {
+  margin-top: 1rem;
+}
+
 /*INITIAL WARNING*/
 
 #warn h3 {
