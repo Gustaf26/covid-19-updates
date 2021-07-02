@@ -459,12 +459,27 @@ footer {
     margin-bottom: 5rem;
   }
 
+  #countrysearchbtn {
+    margin: 0.3em auto;
+    padding: 0.3em;
+    max-width: 50%;
+    border-radius: 5px;
+    border: 1px dotted grey;
+  }
+
+  #countryruta {
+    border-radius: 10px;
+    margin: 0.6em auto;
+    padding: 0.1em;
+    max-width: 50%;
+  }
+
   /*TABLE*/
 
   th,
   td {
-    font-size: 0.9em;
-    padding: 0;
+    font-size: 0.6em;
+    padding: 0.2em;
   }
   th {
     padding-top: 0.3rem;
@@ -480,13 +495,28 @@ footer {
 
   th,
   td {
-    font-size: 0.9em;
-    padding: 0;
+    font-size: 0.8em;
+    padding: 0.2em;
   }
 
   th {
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
+  }
+
+  #countryruta {
+    border-radius: 10px;
+    margin: 0.2em auto;
+    padding: 0.1em;
+    max-width: 50%;
+  }
+
+  #countrysearchbtn {
+    margin: 0.6em 0.6em;
+    padding: 0.3em;
+    max-width: 50%;
+    border-radius: 5px;
+    border: 1px dotted grey;
   }
 }
 
@@ -495,6 +525,11 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+  }
+  th,
+  td {
+    font-size: 0.8em;
+    padding: 0.2em;
   }
 }
 

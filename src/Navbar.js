@@ -65,9 +65,11 @@ const Navbar = (props) => {
   };
 
   const handleChange = (e, newValue) => {
+    props.closeWarning();
     setValue(newValue);
     if (newValue === 0) {
       setRoute("/");
+      props.openwarning();
     } else if (newValue === 1) {
       setRoute("/GlobalSearch");
     } else if (newValue === 2) {

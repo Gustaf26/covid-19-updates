@@ -17,7 +17,7 @@ function Map() {
 
   return (
     <>
-      <h1>See stats on each continent</h1>
+      <h5>See stats on each continent</h5>
       <OverlayTrigger
         target={target.current}
         show={show}

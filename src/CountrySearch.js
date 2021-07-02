@@ -152,7 +152,7 @@ const CountrySearch = () => {
 
   return showsearch == true ? (
     <div>
-      <h3>ENTER COUNTRY NAME (Excepting China and the US)</h3>
+      <h7>ENTER COUNTRY NAME (Excepting China and the US)</h7>
 
       <form className="forma" onSubmit={getFromApi}>
         <input

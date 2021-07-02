@@ -2,7 +2,7 @@ import React from "react";
 import ContagionList from "./ContagionList";
 import CountrySearch from "./CountrySearch";
 import GlobalSearch from "./GlobalSearch";
-import Usefullinks from "./usefullinks";
+// import Usefullinks from "./usefullinks";
 import Map from "./Map";
 import Moment from "react-moment";
 import Navbar from "./Navbar";
@@ -15,6 +15,7 @@ class App extends React.Component {
   state = {
     advices: true,
     adtext: "",
+    warning: true,
   };
 
   componentDidMount = () => {
@@ -27,6 +28,13 @@ class App extends React.Component {
 
   showad = () => {
     this.setState({ advices: true });
+  };
+
+  closeWarning = () => {
+    this.setState({ warning: false });
+  };
+  openwarning = () => {
+    this.setState({ warning: true });
   };
 
   advices = () => {
@@ -96,6 +104,8 @@ class App extends React.Component {
                   closeadvice={this.closead}
                   reopenadvice={this.showad}
                   closetext={this.closeadtext}
+                  closeWarning={this.closeWarning}
+                  openwarning={this.openwarning}
                 />
 
                 {this.state.advices ? (
@@ -109,17 +119,19 @@ class App extends React.Component {
 
               <hr></hr>
 
-              <div id="warn">
-                {this.state.adtext ? this.state.adtext : null}
-
-                <h3>
-                  ATTENTION: Please check the time update for the data delivered
-                </h3>
-                <p>
-                  The disease spreads progressively and we only have access to{" "}
-                  <span id="underline">daily updates</span>
-                </p>
-              </div>
+              {this.state.warning && (
+                <div id="warn">
+                  {this.state.adtext ? this.state.adtext : null}
+                  <h3>
+                    ATTENTION: Please check the time update for the data
+                    delivered
+                  </h3>
+                  <p>
+                    The disease spreads progressively and we only have access to{" "}
+                    <span id="underline">daily updates</span>
+                  </p>
+                </div>
+              )}
               <div>
                 {this.state.advices ? (
                   <p id="countdown-outbreak">

@@ -79,7 +79,7 @@ class GlobalSearch extends React.Component {
 
     return (
       <div className="globalinfo">
-        <h3>GLOBAL DATA</h3>
+        <h7>GLOBAL DATA</h7>
         {globaldata}
       </div>
     );
