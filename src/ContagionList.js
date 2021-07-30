@@ -55,9 +55,9 @@ class ContagionList extends React.Component {
   };
 
   render() {
-    const list = this.state.data.map((cas) => {
+    const list = this.state.data.map((cas, i) => {
       return (
-        <tr>
+        <tr key={i}>
           <td>{cas.country}</td>
           <td>{cas.confirmed}</td>
           <td>{cas.recovered}</td>

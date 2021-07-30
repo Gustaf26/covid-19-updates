@@ -55,10 +55,17 @@ const CountrySearch = () => {
   useEffect(() => {
     setSearch(true);
 
-    axios
-      .get("https://www.trackcorona.live/api/travel")
-      .then((res) => setData(res.data.data))
-      .catch((err) => console.log(err));
+    //   axios
+    //     .get("https://www.trackcorona.live/api/travel", {
+    //       method: "GET",
+    //       headers: {
+    //         "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
+    //         "x-rapidapi-key": `${Key.Key}`,
+    //         "Access-Control-Allow-Origin": "*",
+    //       },
+    //     })
+    //     .then((res) => setData(res.data.data))
+    //     .catch((err) => console.log(err));
   }, []);
 
   const getFromApi = (e) => {
@@ -109,6 +116,8 @@ const CountrySearch = () => {
         return;
       }
 
+      console.log(dat.data);
+
       dataarr = dat.data.covid19Stats.map((region) => {
         return {
           region: region,
@@ -120,15 +129,15 @@ const CountrySearch = () => {
         };
       });
 
-      let travelInfoArr;
-      travelInfoArr = [];
+      // let travelInfoArr;
+      // travelInfoArr = [];
 
-      rawData.map((country) => {
-        if (country.location === dat.data.covid19Stats[0].country) {
-          travelInfoArr.push(country.data);
-        }
-        setTravelData(travelInfoArr);
-      });
+      // rawData.map((country) => {
+      //   if (country.location === dat.data.covid19Stats[0].country) {
+      //     travelInfoArr.push(country.data);
+      //   }
+      //   setTravelData(travelInfoArr);
+      // });
 
       setData(dataarr);
     }
@@ -139,9 +148,9 @@ const CountrySearch = () => {
     setSearch(true);
     setError(false);
   };
-  const showRecommendations = () => {
-    setRecs(!showRecs);
-  };
+  // const showRecommendations = () => {
+  //   setRecs(!showRecs);
+  // };
 
   useEffect(() => {
     setCountryData(
@@ -200,9 +209,9 @@ const CountrySearch = () => {
           <button className="backToTop" onClick={newSearch}>
             New Search
           </button>
-          <p id="recommendations_link" onClick={() => showRecommendations()}>
+          {/* <p id="recommendations_link" onClick={() => showRecommendations()}>
             TRAVEL RECOMMENDATIONS
-          </p>
+          </p> */}
         </div>
       ) : errormsg == true && showsearch == false && !showRecs ? (
         <div className="notvalidcountry">
@@ -219,9 +228,9 @@ const CountrySearch = () => {
         </div>
       ) : null}
 
-      {showRecs && (
+      {/* {showRecs && (
         <Travelrec travelData={travelData} closeRecs={showRecommendations} />
-      )}
+      )} */}
     </div>
   );
 };
