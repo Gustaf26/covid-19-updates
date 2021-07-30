@@ -79,7 +79,7 @@ const Navbar = (props) => {
     } else if (newValue === 4) {
       setRoute("/Us");
     } else if (newValue === 5) {
-      setRoute("/Usefullinks");
+      setRoute("/world");
     }
   };
 

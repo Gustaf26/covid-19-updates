@@ -149,7 +149,7 @@ class App extends React.Component {
               <Route path="/CountrySearch" component={CountrySearch} />
               <Route path="/ContagionList" component={ContagionList} />
               <Route path="/Us" component={US} />
-              <Route path="/Usefullinks" component={Map} />
+              <Route path="/world" component={Map} />
             </BrowserRouter>
           </div>
         </div>
