@@ -38,7 +38,7 @@ class App extends React.Component {
   };
 
   advices = () => {
-    if (this.state.adtext == "") {
+    if (this.state.adtext === "") {
       this.setState({
         adtext: (
           <div className="adv">

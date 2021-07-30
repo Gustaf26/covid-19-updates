@@ -54,15 +54,15 @@ const Navbar = (props) => {
     props.closetext();
   };
 
-  const closemenu = (e) => {
-    setMenu(false);
+  // const closemenu = (e) => {
+  //   setMenu(false);
 
-    if (e.target.innerText !== "Home") {
-      const breadarr = [...this.state.bread];
-      breadarr.push(e.target.innerText);
-      setBread(breadarr);
-    }
-  };
+  //   if (e.target.innerText !== "Home") {
+  //     const breadarr = [...this.state.bread];
+  //     breadarr.push(e.target.innerText);
+  //     setBread(breadarr);
+  //   }
+  // };
 
   const handleChange = (e, newValue) => {
     props.closeWarning();
@@ -95,13 +95,13 @@ const Navbar = (props) => {
     <div>
       {newRoute ? <Redirect to={newRoute} /> : null}
 
-      {showmenu == false ? (
+      {showmenu === false ? (
         <button type="submit" className="openbtn" onClick={(e) => openmenu(e)}>
           ☰ Menu
         </button>
       ) : null}
 
-      {showmenu == true ? (
+      {showmenu === true ? (
         <div id="navbar_div">
           <StyledTabs
             orientation={direction ? direction : null}

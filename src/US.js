@@ -26,7 +26,7 @@ class ContagionList extends React.Component {
   };
 
   listoutput = (dat) => {
-    let dataarr = [...this.state.data];
+    // let dataarr = [...this.state.data];
 
     let usarr = [];
 

@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Tooltip from "react-bootstrap/Tooltip";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import WorldMap from "react-world-map";
 
 function Map() {

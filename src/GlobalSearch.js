@@ -1,6 +1,6 @@
 import React from "react";
 import Moment from "react-moment";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Key from "./keys";
 
 class GlobalSearch extends React.Component {
@@ -51,17 +51,18 @@ class GlobalSearch extends React.Component {
 
   render() {
     const globaldata = this.state.data.map((cas) => {
-      if (cas.country == "US" || cas.country == "China") {
-        return;
+      if (cas.country === "US" || cas.country === "China") {
+        return " ";
       } else {
         return (
           <div className="card">
             <img
+              alt="viruspic"
               className="global_image"
               src="https://media.istockphoto.com/vectors/virus-bacteria-vector-background-cells-disease-outbreak-coronavirus-vector-id1211544068?k=6&m=1211544068&s=612x612&w=0&h=IvZo-HIL4o6qhUaTno8SKcnPmBf6niW1YEBjBzDABHk="
             />
             <h4>COUNTRY: {cas.country}</h4>
-            {cas.province != "" ? <h5>PROVINCE: {cas.province}</h5> : null}
+            {cas.province !== "" ? <h5>PROVINCE: {cas.province}</h5> : null}
             <div>CASES CONFIRMED: {cas.confirmed}</div>
             <div>CASES RECOVERED: {cas.recovered}</div>
             <div>DEATH CASES: {cas.deaths}</div>
@@ -79,7 +80,7 @@ class GlobalSearch extends React.Component {
 
     return (
       <div className="globalinfo">
-        <h7>GLOBAL DATA</h7>
+        <h6>GLOBAL DATA</h6>
         {globaldata}
       </div>
     );

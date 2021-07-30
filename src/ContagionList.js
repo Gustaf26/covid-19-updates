@@ -26,7 +26,7 @@ class ContagionList extends React.Component {
   };
 
   listoutput = (dat) => {
-    let dataarr = [...this.state.data];
+    // let dataarr = [...this.state.data];
 
     let globalarr = [];
 
@@ -44,7 +44,7 @@ class ContagionList extends React.Component {
     }
 
     let selectarr = globalarr.filter(
-      (cou) => cou.country != "US" && cou.country != "China"
+      (cou) => cou.country !== "US" && cou.country !== "China"
     );
 
     //let doubleselectarr = selectarr.filter(cit=>cit.city =="")

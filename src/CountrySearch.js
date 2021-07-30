@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -13,7 +13,7 @@ import Moment from "react-moment";
 import Key from "./keys";
 import "./App.css";
 
-import Travelrec from "./Travelrec";
+// import Travelrec from "./Travelrec";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -46,9 +46,9 @@ const CountrySearch = () => {
   const [country, setCountry] = useState("");
   const [showsearch, setSearch] = useState("");
   const [errormsg, setError] = useState(false);
-  const [rawData, setRawData] = useState([]);
-  const [showRecs, setRecs] = useState(false);
-  const [travelData, setTravelData] = useState([]);
+  // const [rawData, setRawData] = useState([]);
+  // const [showRecs, setRecs] = useState(false);
+  // const [travelData, setTravelData] = useState([]);
   const classes = useStyles();
   const [countryData, setCountryData] = useState("");
 
@@ -73,7 +73,7 @@ const CountrySearch = () => {
 
     setSearch(false);
 
-    if (country == "") {
+    if (country === "") {
       setError(true);
 
       return;
@@ -172,10 +172,9 @@ const CountrySearch = () => {
 
   return (
     <div>
-      {showsearch == true ? (
+      {showsearch === true ? (
         <div>
-          <h7>ENTER COUNTRY NAME (Excepting China and the US)</h7>
-
+          <h6>ENTER COUNTRY NAME (Excepting China and the US)</h6>
           <form className="forma" onSubmit={getFromApi}>
             <input
               id="countryruta"
@@ -187,7 +186,7 @@ const CountrySearch = () => {
             </button>
           </form>
         </div>
-      ) : showsearch == false && errormsg == false ? (
+      ) : showsearch === false && errormsg === false ? (
         <div className="countryinfo">
           <h6 className="country_title">{country.toUpperCase()}</h6>
           <TableContainer component={Paper}>
@@ -213,7 +212,7 @@ const CountrySearch = () => {
             TRAVEL RECOMMENDATIONS
           </p> */}
         </div>
-      ) : errormsg == true && showsearch == false && !showRecs ? (
+      ) : errormsg === true && showsearch === false ? (
         <div className="notvalidcountry">
           You need to enter a valid country name
           <div>
