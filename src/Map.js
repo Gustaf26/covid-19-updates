@@ -16,6 +16,10 @@ function Map() {
     if (selectionIndex.current === 1) {
       popup.toggleAttribute("hidden");
     }
+    if (!cont) {
+      popup.toggleAttribute("hidden");
+      selectionIndex.current = 0;
+    }
     popup.innerText = cont;
   };
 
