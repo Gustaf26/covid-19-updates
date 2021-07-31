@@ -7,6 +7,7 @@ import Map from "./Map";
 import Moment from "react-moment";
 import Navbar from "./Navbar";
 import { BrowserRouter, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import US from "./US";
 
 import "./App.css";
