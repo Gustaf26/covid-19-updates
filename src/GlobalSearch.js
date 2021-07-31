@@ -61,8 +61,8 @@ class GlobalSearch extends React.Component {
               className="global_image"
               src="https://media.istockphoto.com/vectors/virus-bacteria-vector-background-cells-disease-outbreak-coronavirus-vector-id1211544068?k=6&m=1211544068&s=612x612&w=0&h=IvZo-HIL4o6qhUaTno8SKcnPmBf6niW1YEBjBzDABHk="
             />
-            <h4>COUNTRY: {cas.country}</h4>
-            {cas.province !== "" ? <h5>PROVINCE: {cas.province}</h5> : null}
+            <h5>COUNTRY: {cas.country}</h5>
+            {cas.province !== "" ? <h6>PROVINCE: {cas.province}</h6> : null}
             <div>CASES CONFIRMED: {cas.confirmed}</div>
             <div>CASES RECOVERED: {cas.recovered}</div>
             <div>DEATH CASES: {cas.deaths}</div>
