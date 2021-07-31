@@ -5,9 +5,32 @@ import "bootstrap/dist/css/bootstrap.css";
 // import Button from "react-bootstrap/Button";
 import WorldMap from "react-world-map";
 
+import Key from "./keys";
+
 function Map() {
   const [selected, onSelect] = useState(null);
+  const [regionsData, setRegData] = useState("");
   const selectionIndex = useRef(0);
+
+  useEffect(() => {
+    fetch(
+      "https://covid-19-coronavirus-statistics2.p.rapidapi.com/continentData",
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key": `${Key.RegionKey}`,
+          "x-rapidapi-host": "covid-19-coronavirus-statistics2.p.rapidapi.com",
+        },
+      }
+    )
+      .then((response) => {
+        console.log(response);
+        setRegData(response);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   const getMyToolTipFunction = (cont) => {
     onSelect(cont);
