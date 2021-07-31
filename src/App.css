@@ -396,6 +396,24 @@ svg.map-img {
   cursor: pointer;
 }
 
+.class {
+  position: relative;
+}
+.displayText {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -80px;
+  width: 160px;
+  background-color: aqua;
+  color: #fff;
+  color: red;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  z-index: 1000;
+}
+
 footer {
   position: fixed;
   bottom: 0;
