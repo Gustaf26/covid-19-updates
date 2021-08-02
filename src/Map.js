@@ -1,34 +1,36 @@
 import React, { useRef, useState, useEffect } from "react";
+
 import "bootstrap/dist/css/bootstrap.css";
+import axios from "axios";
+
 // import Tooltip from "react-bootstrap/Tooltip";
 // import Overlay from "react-bootstrap/Overlay";
 // import Button from "react-bootstrap/Button";
 import WorldMap from "react-world-map";
-
 import Key from "./keys";
 
 function Map() {
   const [selected, onSelect] = useState(null);
-  const [regionsData, setRegData] = useState("");
+  const [allData, setAllData] = useState("");
   const selectionIndex = useRef(0);
 
   useEffect(() => {
-    fetch(
-      "https://covid-19-coronavirus-statistics2.p.rapidapi.com/continentData",
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key": `${Key.RegionKey}`,
-          "x-rapidapi-host": "covid-19-coronavirus-statistics2.p.rapidapi.com",
-        },
-      }
-    )
-      .then((response) => {
-        console.log(response);
-        setRegData(response);
+    const options = {
+      method: "GET",
+      url: "https://covid-19-coronavirus-statistics2.p.rapidapi.com/continentData",
+      headers: {
+        "x-rapidapi-key": `${Key.RegionKey}`,
+        "x-rapidapi-host": "covid-19-coronavirus-statistics2.p.rapidapi.com",
+      },
+    };
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+        setAllData(response.data.result);
       })
-      .catch((err) => {
-        console.error(err);
+      .catch(function (error) {
+        console.error(error);
       });
   }, []);
 
@@ -43,7 +45,30 @@ function Map() {
       popup.toggleAttribute("hidden");
       selectionIndex.current = 0;
     }
-    popup.innerText = cont;
+    let continents = {
+      "North America": "na",
+      "South America": "sa",
+      Asia: "as",
+      Oceania: "oc",
+      Europe: "eu",
+      Africa: "af",
+    };
+    let keys = Object.keys(continents);
+    console.log(keys);
+    if (allData.length) {
+      allData.map((region) => {
+        keys.map((key) => {
+          if (region.continent === key && cont === continents[key]) {
+            popup.innerHTML = `<h6 className="mb-2">${region.continent}</h6>
+                            <p>New cases: ${region.newCases}</p>
+                            <p>New Deaths: ${region.newDeaths}</p>
+                            <p>Tota cases: ${region.totalCases}</p>
+                            <p>Total deaths: ${region.totalDeaths}</p>
+                            <p>Total recovered: ${region.totalRecovered}</p>`;
+          }
+        });
+      });
+    }
   };
 
   return (
@@ -54,7 +79,7 @@ function Map() {
           selected={selected}
           onSelect={(cont) => getMyToolTipFunction(cont)}
         />
-        <span hidden class="displayText" id="displayText">
+        <span hidden className="displayText w-100" id="displayText">
           Hi I am ToolTip
         </span>
       </div>

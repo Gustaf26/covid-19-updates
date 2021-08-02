@@ -403,12 +403,10 @@ svg.map-img {
 .displayText {
   position: absolute;
   top: 0;
-  left: 50%;
-  margin-left: -80px;
-  width: 160px;
-  background-color: aqua;
+  left: 0;
+  margin-top: -200px;
+  background-color: rgba(105, 158, 170, 0.9);
   color: #fff;
-  color: red;
   text-align: center;
   border-radius: 6px;
   padding: 8px 0;
@@ -435,6 +433,16 @@ footer {
 
   #warn {
     font-size: small;
+  }
+
+  .displayText {
+    max-height: 50%;
+    margin-top: -75px;
+  }
+
+  .displayText p {
+    font-size: smaller;
+    margin: 0.25em;
   }
 }
 
