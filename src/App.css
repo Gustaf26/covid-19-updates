@@ -732,4 +732,9 @@ footer {
     border-radius: 5px;
     border: 1px dotted grey;
   }
+
+  .displayText {
+    max-height: 43%;
+    margin-top: -80px;
+  }
 }

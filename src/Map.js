@@ -99,7 +99,7 @@ function Map() {
           onSelect={(cont) => getMyToolTipFunction(cont)}
         />
         <span hidden className="displayText w-100" id="displayText">
-          Hi I am ToolTip
+          Please double click again
         </span>
       </div>
     </>
