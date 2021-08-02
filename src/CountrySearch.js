@@ -20,6 +20,7 @@ const StyledTableCell = withStyles((theme) => ({
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
     padding: window.innerWidth > 700 ? "0.5em" : "0.2em",
+    fontSize: window.innerWidth > 600 ? 14 : 12,
   },
   body: {
     fontSize: window.innerWidth > 600 ? 14 : 12,
@@ -160,7 +161,7 @@ const CountrySearch = () => {
             <StyledTableCell align="center">{cas.province}</StyledTableCell>
             <StyledTableCell align="center">{cas.confirmed}</StyledTableCell>
             <StyledTableCell align="center">{cas.deaths}</StyledTableCell>
-            <StyledTableCell align="center">{cas.recovered}</StyledTableCell>
+            {/* <StyledTableCell align="center">{cas.recovered}</StyledTableCell> */}
             <StyledTableCell align="center">
               <Moment durationFromNow>{cas.timestamp}</Moment> from now
             </StyledTableCell>
@@ -196,7 +197,7 @@ const CountrySearch = () => {
                   <StyledTableCell align="center">PROVINCE</StyledTableCell>
                   <StyledTableCell align="center">CONFIRMED</StyledTableCell>
                   <StyledTableCell align="center">CASUALTIES</StyledTableCell>
-                  <StyledTableCell align="center">RECOVERED</StyledTableCell>
+                  {/* <StyledTableCell align="center">RECOVERED</StyledTableCell> */}
                   <StyledTableCell align="center">
                     UPDATED (hh:mm:ss)
                   </StyledTableCell>

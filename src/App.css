@@ -436,6 +436,14 @@ footer {
     font-size: small;
   }
 
+  /*Conuntry table*/
+
+  #headings-country-table {
+    font-size: small;
+  }
+
+  /*Map*/
+
   .displayText {
     max-height: 53%;
     margin-top: -65px;
