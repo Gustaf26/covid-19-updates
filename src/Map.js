@@ -12,6 +12,7 @@ import Key from "./keys";
 function Map() {
   const [selected, onSelect] = useState(null);
   const [allData, setAllData] = useState("");
+  const [toolTip, setTooltip] = useState("");
   const selectionIndex = useRef(0);
 
   useEffect(() => {
@@ -43,8 +44,13 @@ function Map() {
     }
     if (!cont) {
       popup.toggleAttribute("hidden");
+      setTooltip(false);
       selectionIndex.current = 0;
+      return;
     }
+
+    setTooltip(true);
+
     let continents = {
       "North America": "na",
       "South America": "sa",
@@ -64,7 +70,7 @@ function Map() {
           if (region.continent === key && cont === continents[key]) {
             popup.innerHTML = `<a>New cases: ${region.newCases}</a>
                               <a>New Deaths: ${region.newDeaths}</a>
-                              <a>Tota cases: ${region.totalCases}</a>
+                              <a>Total cases: ${region.totalCases}</a>
                               <a>Total deaths: ${region.totalDeaths}</a>
                               <a>Total recovered: ${region.totalRecovered}</a>
                             `;
@@ -74,9 +80,19 @@ function Map() {
     }
   };
 
+  useEffect(() => {
+    if (toolTip) {
+      document.getElementById("heading-reg-data").style.visibility = "hidden";
+    } else {
+      document.getElementById("heading-reg-data").style.visibility = "visible";
+    }
+  }, [toolTip]);
+
   return (
     <>
-      <h5 className="pb-2">See stats on each continent</h5>
+      <h5 id="heading-reg-data" className="pb-2 my-3">
+        See stats on each continent
+      </h5>
       <div class="class">
         <WorldMap
           selected={selected}

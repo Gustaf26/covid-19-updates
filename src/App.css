@@ -405,7 +405,8 @@ svg.map-img {
   top: 0;
   left: 0;
   margin-top: -200px;
-  background-color: rgba(105, 158, 170, 0.9);
+  /* background-color: rgba(105, 158, 170, 0.9); */
+  background-color: rgba(140, 159, 163, 0.9);
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -437,12 +438,17 @@ footer {
 
   .displayText {
     max-height: 53%;
-    margin-top: -5px;
+    margin-top: -65px;
   }
 
   .displayText a {
     font-size: 0.7em;
     margin: 0.25em;
+  }
+
+  svg.map-img {
+    margin-bottom: 2rem;
+    margin-top: -45px;
   }
 }
 
@@ -555,7 +561,7 @@ footer {
 
   .displayText {
     max-height: 43%;
-    margin-top: -65px;
+    margin-top: -75px;
   }
 
   .displayText a {
@@ -604,6 +610,16 @@ footer {
     max-width: 500px;
     margin-top: -2em;
   }
+
+  .displayText {
+    max-height: 43%;
+    margin-top: -70px;
+  }
+
+  .displayText a {
+    font-size: small;
+    margin: 0.25em;
+  }
 }
 
 @media screen and (min-width: 601px) and (max-width: 1100px) {
@@ -630,6 +646,16 @@ footer {
     max-width: 50%;
     border-radius: 5px;
     border: 1px dotted grey;
+  }
+
+  .displayText {
+    max-height: 43%;
+    margin-top: -65px;
+  }
+
+  .displayText a {
+    font-size: medium;
+    margin: 0.25em;
   }
 }
 
