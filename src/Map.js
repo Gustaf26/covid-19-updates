@@ -91,7 +91,7 @@ function Map() {
   return (
     <>
       <h5 id="heading-reg-data" className="pb-2 my-3">
-        See stats on each continent
+        See stats (click) on each continent
       </h5>
       <div class="class">
         <WorldMap

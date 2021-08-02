@@ -54,16 +54,6 @@ const Navbar = (props) => {
     props.closetext();
   };
 
-  // const closemenu = (e) => {
-  //   setMenu(false);
-
-  //   if (e.target.innerText !== "Home") {
-  //     const breadarr = [...this.state.bread];
-  //     breadarr.push(e.target.innerText);
-  //     setBread(breadarr);
-  //   }
-  // };
-
   const handleChange = (e, newValue) => {
     props.closeWarning();
     setValue(newValue);
@@ -71,15 +61,15 @@ const Navbar = (props) => {
       setRoute("/");
       props.openwarning();
     } else if (newValue === 1) {
-      setRoute("/GlobalSearch");
-    } else if (newValue === 2) {
-      setRoute("/ContagionList");
-    } else if (newValue === 3) {
-      setRoute("/CountrySearch");
-    } else if (newValue === 4) {
-      setRoute("/Us");
-    } else if (newValue === 5) {
       setRoute("/world");
+    } else if (newValue === 2) {
+      setRoute("/GlobalSearch");
+    } else if (newValue === 3) {
+      setRoute("/ContagionList");
+    } else if (newValue === 4) {
+      setRoute("/CountrySearch");
+    } else if (newValue === 5) {
+      setRoute("/Us");
     }
   };
 
@@ -111,20 +101,20 @@ const Navbar = (props) => {
             aria-label="styled tabs example"
           >
             <StyledTab label="Home" onClick={(e) => handleChange(e, 0)} />
+            <StyledTab onClick={(e) => handleChange(e, 1)} label="World Map" />
             <StyledTab
-              onClick={(e) => handleChange(e, 1)}
+              onClick={(e) => handleChange(e, 2)}
               label="Global Statistics"
             />
             <StyledTab
-              onClick={(e) => handleChange(e, 2)}
+              onClick={(e) => handleChange(e, 3)}
               label="Most Infected Countries"
             />
             <StyledTab
-              onClick={(e) => handleChange(e, 3)}
+              onClick={(e) => handleChange(e, 4)}
               label="Search By Country"
             />
-            <StyledTab onClick={(e) => handleChange(e, 4)} label="U.S." />
-            <StyledTab onClick={(e) => handleChange(e, 5)} label="World Map" />
+            <StyledTab onClick={(e) => handleChange(e, 5)} label="U.S." />
           </StyledTabs>
         </div>
       ) : null}
