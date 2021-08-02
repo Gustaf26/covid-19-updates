@@ -436,12 +436,12 @@ footer {
   }
 
   .displayText {
-    max-height: 50%;
-    margin-top: -75px;
+    max-height: 53%;
+    margin-top: -5px;
   }
 
-  .displayText p {
-    font-size: smaller;
+  .displayText a {
+    font-size: 0.7em;
     margin: 0.25em;
   }
 }
@@ -546,9 +546,21 @@ footer {
     padding-bottom: 0.3rem;
   }
 
+  /*MAP*/
+
   svg.map-img {
     max-width: 400px;
     margin-top: -3em;
+  }
+
+  .displayText {
+    max-height: 43%;
+    margin-top: -65px;
+  }
+
+  .displayText a {
+    font-size: smaller;
+    margin: 0.25em;
   }
 }
 @media screen and (min-width: 501px) and (max-width: 600px) {

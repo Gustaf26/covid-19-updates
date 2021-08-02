@@ -53,18 +53,21 @@ function Map() {
       Europe: "eu",
       Africa: "af",
     };
+
+    popup.style.display = "flex";
+
     let keys = Object.keys(continents);
     console.log(keys);
     if (allData.length) {
       allData.map((region) => {
         keys.map((key) => {
           if (region.continent === key && cont === continents[key]) {
-            popup.innerHTML = `<h6 className="mb-2">${region.continent}</h6>
-                            <p>New cases: ${region.newCases}</p>
-                            <p>New Deaths: ${region.newDeaths}</p>
-                            <p>Tota cases: ${region.totalCases}</p>
-                            <p>Total deaths: ${region.totalDeaths}</p>
-                            <p>Total recovered: ${region.totalRecovered}</p>`;
+            popup.innerHTML = `<a>New cases: ${region.newCases}</a>
+                              <a>New Deaths: ${region.newDeaths}</a>
+                              <a>Tota cases: ${region.totalCases}</a>
+                              <a>Total deaths: ${region.totalDeaths}</a>
+                              <a>Total recovered: ${region.totalRecovered}</a>
+                            `;
           }
         });
       });
