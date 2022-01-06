@@ -404,10 +404,10 @@ svg.map-img {
   position: absolute;
   top: 0;
   left: 0;
-  margin-top: -200px;
+  margin-top: -180px;
   /* background-color: rgba(105, 158, 170, 0.9); */
-  background-color: rgba(140, 159, 163, 0.9);
-  color: #fff;
+  background-color: rgba(184, 202, 206, 0.9);
+  color: rgb(59, 93, 104);
   text-align: center;
   border-radius: 6px;
   padding: 8px 0;
