@@ -59,6 +59,7 @@ const Navbar = (props) => {
     setValue(newValue);
     if (newValue === 0) {
       setRoute("/");
+      setMenu(false);
       props.openwarning();
     } else if (newValue === 1) {
       setRoute("/world");
