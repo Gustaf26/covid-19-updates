@@ -183,8 +183,8 @@ button {
 }
 
 #countrysearchbtn:hover {
-  background-color: "#f0f0f0";
-  color: rgb(223, 219, 219);
+  background-color: grey;
+  color: white;
 }
 
 #commentbelow {
@@ -366,6 +366,11 @@ table {
   border-collapse: collapse;
 }
 
+.countryinfo th {
+  background-color: #949da0;
+  color: #f1efef;
+}
+
 td,
 th {
   border: 1px solid #dddddd;
@@ -426,14 +431,45 @@ footer {
   font-size: 1em;
 }
 @media screen and (min-width: 200px) and (max-width: 400px) {
+  .openbtn {
+    font-size: 1.05rem;
+  }
   th,
   td {
-    font-size: 0.6em;
+    font-size: 0.7em;
     padding: 0.2em;
   }
 
   #warn {
     font-size: small;
+  }
+
+  /*Country search*/
+
+  .country_search {
+    min-height: 120px;
+  }
+
+  .forma {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .country_search h6 {
+    color: grey;
+  }
+
+  .country_search input {
+    padding: 0;
+    margin: 1rem auto 1rem auto;
+    max-width: 50%;
+    margin-top: 0.75rem;
+  }
+
+  #countrysearchbtn {
+    padding: 0.5rem;
+    max-width: 20%;
+    margin-top: 0.5rem;
   }
 
   /*Conuntry table*/
@@ -552,8 +588,8 @@ footer {
 
   th,
   td {
-    font-size: 0.7em;
-    padding: 0.2em;
+    font-size: 0.9em;
+    padding: 0.3em;
   }
   th {
     padding-top: 0.3rem;
@@ -590,7 +626,7 @@ footer {
 
   th,
   td {
-    font-size: 0.8em;
+    font-size: 0.9em;
     padding: 0.2em;
   }
 
