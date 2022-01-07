@@ -189,8 +189,8 @@ button {
 
 #commentbelow {
   font-weight: bold;
-  padding-top: 0.75rem;
-  color: white;
+  padding-top: 1rem;
+  color: rgb(97, 92, 92);
 }
 
 #star {

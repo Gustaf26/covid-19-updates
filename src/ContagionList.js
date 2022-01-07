@@ -60,7 +60,7 @@ class ContagionList extends React.Component {
         <tr key={i}>
           <td>{cas.country}</td>
           <td>{cas.confirmed}</td>
-          <td>{cas.recovered}</td>
+          {/* <td>{cas.recovered}</td> */}
           <td>{cas.deaths}</td>
           <td>
             <Moment durationFromNow>{cas.timestamp}</Moment> from now
@@ -78,7 +78,7 @@ class ContagionList extends React.Component {
                 COUNTRY<span id="star">(*)</span>
               </th>
               <th>CONFIRMED</th>
-              <th>RECOVERED</th>
+              {/* <th>RECOVERED</th> */}
               <th>CASUALTIES</th>
               <th>UPDATE (hh:mm:ss)</th>
             </tr>
