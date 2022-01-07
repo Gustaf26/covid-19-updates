@@ -30,6 +30,10 @@ const StyledTab = withStyles((theme) => ({
       opacity: 1,
       color: "#000000",
     },
+    "&:hover": {
+      backgroundColor: "rgb(88, 87, 87)",
+      color: "#ffffff",
+    },
   },
 }))((props) => <Tab disableRipple {...props} />);
 
