@@ -50,17 +50,13 @@ class GlobalSearch extends React.Component {
   };
 
   render() {
-    const globaldata = this.state.data.map((cas) => {
+    const globaldata = this.state.data.map((i, cas) => {
       if (cas.country === "US" || cas.country === "China") {
         return " ";
       } else {
         return (
           <div className="card">
-            <img
-              alt="viruspic"
-              className="global_image"
-              src="https://media.istockphoto.com/vectors/virus-bacteria-vector-background-cells-disease-outbreak-coronavirus-vector-id1211544068?k=6&m=1211544068&s=612x612&w=0&h=IvZo-HIL4o6qhUaTno8SKcnPmBf6niW1YEBjBzDABHk="
-            />
+            <img alt="viruspic" className="global_image" />
             <h5>COUNTRY: {cas.country}</h5>
             {cas.province !== "" ? <h6>PROVINCE: {cas.province}</h6> : null}
             <div>CASES CONFIRMED: {cas.confirmed}</div>
