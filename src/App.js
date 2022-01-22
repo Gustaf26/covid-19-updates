@@ -1,7 +1,7 @@
 import React from "react";
 import ContagionList from "./ContagionList";
 import CountrySearch from "./CountrySearch";
-import GlobalSearch from "./GlobalSearch";
+// import GlobalSearch from "./GlobalSearch";
 // import Usefullinks from "./usefullinks";
 import Map from "./Map";
 import Moment from "react-moment";
@@ -146,7 +146,7 @@ class App extends React.Component {
                 ) : null}
               </div>
 
-              <Route path="/GlobalSearch" component={GlobalSearch} />
+              {/* <Route path="/GlobalSearch" component={GlobalSearch} /> */}
               <Route path="/CountrySearch" component={CountrySearch} />
               <Route path="/ContagionList" component={ContagionList} />
               <Route path="/Us" component={US} />

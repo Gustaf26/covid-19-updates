@@ -68,12 +68,10 @@ const Navbar = (props) => {
     } else if (newValue === 1) {
       setRoute("/world");
     } else if (newValue === 2) {
-      setRoute("/GlobalSearch");
-    } else if (newValue === 3) {
       setRoute("/ContagionList");
-    } else if (newValue === 4) {
+    } else if (newValue === 3) {
       setRoute("/CountrySearch");
-    } else if (newValue === 5) {
+    } else if (newValue === 4) {
       setRoute("/Us");
     }
   };
@@ -109,17 +107,13 @@ const Navbar = (props) => {
             <StyledTab onClick={(e) => handleChange(e, 1)} label="World Map" />
             <StyledTab
               onClick={(e) => handleChange(e, 2)}
-              label="Global Statistics"
-            />
-            <StyledTab
-              onClick={(e) => handleChange(e, 3)}
               label="Most Infected Countries"
             />
             <StyledTab
-              onClick={(e) => handleChange(e, 4)}
+              onClick={(e) => handleChange(e, 3)}
               label="Search By Country"
             />
-            <StyledTab onClick={(e) => handleChange(e, 5)} label="U.S." />
+            <StyledTab onClick={(e) => handleChange(e, 4)} label="U.S." />
           </StyledTabs>
         </div>
       ) : null}
